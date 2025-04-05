@@ -55,6 +55,7 @@
     --cyber-glow: #22d3ee;
     --cyber-light-40: rgba(51, 65, 85, 0.4);
     --cyber-light-70: rgba(51, 65, 85, 0.7);
+    --cyber-light-80: rgba(51, 65, 85, 0.8);
     --cyber-glow-5: rgba(34, 211, 238, 0.05);
     --cyber-glow-10: rgba(34, 211, 238, 0.1);
     --cyber-glow-20: rgba(34, 211, 238, 0.2);
@@ -71,6 +72,7 @@
     --cyber-glow: #0891b2;
     --cyber-light-40: rgba(203, 213, 225, 0.4);
     --cyber-light-70: rgba(203, 213, 225, 0.7);
+    --cyber-light-80: rgba(203, 213, 225, 0.8);
     --cyber-glow-5: rgba(8, 145, 178, 0.05);
     --cyber-glow-10: rgba(8, 145, 178, 0.1);
     --cyber-glow-20: rgba(8, 145, 178, 0.2);
@@ -119,7 +121,7 @@
   }
   
   .cyber-button {
-    @apply px-4 py-2 bg-cyber hover:bg-cyber-light/80 text-white rounded-md border border-[var(--cyber-accent-20)] transition-all duration-300 hover:border-[var(--cyber-glow-50)] shadow-md hover:shadow-[var(--cyber-glow-20)];
+    @apply px-4 py-2 bg-cyber hover:bg-[var(--cyber-light-80)] text-white rounded-md border border-[var(--cyber-accent-20)] transition-all duration-300 hover:border-[var(--cyber-glow-50)] shadow-md hover:shadow-[var(--cyber-glow-20)];
   }
 
   .light-mode .cyber-button {
