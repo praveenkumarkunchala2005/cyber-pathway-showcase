@@ -124,7 +124,9 @@
   }
   
   .cyber-button {
-    @apply px-4 py-2 bg-cyber-accent text-white rounded-md border border-transparent transition-all duration-300 hover:bg-cyber-glow shadow-md;
+    @apply px-4 py-2 bg-cyber-accent rounded-md border transition-all duration-300 hover:bg-cyber-glow shadow-md;
+    color: white; /* Direct color instead of using @apply text-white */
+    border-color: transparent; /* Direct color instead of using @apply border-transparent */
   }
 
   .light-mode .cyber-button {
@@ -133,7 +135,13 @@
   }
   
   .cyber-button-outline {
-    @apply px-4 py-2 bg-transparent text-cyber-glow hover:bg-[var(--cyber-glow-10)] rounded-md border border-[var(--cyber-glow-50)] transition-all duration-300 shadow-md hover:shadow-[var(--cyber-glow-20)];
+    @apply px-4 py-2 bg-transparent rounded-md transition-all duration-300 shadow-md hover:shadow-[var(--cyber-glow-20)];
+    color: var(--cyber-glow); /* Direct color instead of using @apply text-cyber-glow */
+    border: 1px solid var(--cyber-glow-50);
+  }
+  
+  .cyber-button-outline:hover {
+    background-color: var(--cyber-glow-10);
   }
   
   .section-title {
@@ -150,11 +158,20 @@
   }
 
   .contact-item {
-    @apply flex items-center space-x-2 text-gray-300 hover:text-cyber-glow transition-colors duration-300;
+    @apply flex items-center space-x-2 transition-colors duration-300;
+    color: #d1d5db; /* Direct color instead of using @apply text-gray-300 */
+  }
+
+  .contact-item:hover {
+    color: var(--cyber-glow); /* Direct color instead of using @apply hover:text-cyber-glow */
   }
 
   .light-mode .contact-item {
-    @apply text-gray-600 hover:text-cyber-accent;
+    color: #4b5563; /* Direct color instead of using @apply text-gray-600 */
+  }
+
+  .light-mode .contact-item:hover {
+    color: var(--cyber-accent); /* Direct color instead of using @apply hover:text-cyber-accent */
   }
   
   .skills-grid {
