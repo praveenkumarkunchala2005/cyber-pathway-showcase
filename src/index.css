@@ -47,66 +47,55 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  :root {
+    --cyber-dark: #0f172a;
+    --cyber-default: #1e293b;
+    --cyber-light: #334155;
+    --cyber-accent: #0d9488;
+    --cyber-glow: #22d3ee;
   }
-}
 
-@layer base {
+  .light-mode {
+    --cyber-dark: #f1f5f9;
+    --cyber-default: #e2e8f0;
+    --cyber-light: #cbd5e1;
+    --cyber-accent: #0d9488;
+    --cyber-glow: #0891b2;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-cyber-dark text-gray-100 font-sans;
+    @apply bg-cyber-dark text-gray-100 font-sans transition-colors duration-300;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-space;
   }
+
+  .light-mode .text-white {
+    @apply text-cyber-dark;
+  }
+
+  .light-mode .text-gray-300, 
+  .light-mode .text-gray-400 {
+    @apply text-gray-600;
+  }
 }
 
 @layer components {
   .cyber-card {
-    @apply bg-cyber border border-cyber-light/40 rounded-md overflow-hidden relative;
+    @apply bg-cyber border border-cyber-light/40 rounded-md overflow-hidden relative transition-colors duration-300;
   }
   
   .cyber-card::after {
     @apply content-[''] absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyber-glow/5 to-transparent opacity-30 pointer-events-none;
+  }
+
+  .light-mode .cyber-card {
+    @apply border-cyber-light/70 shadow-md;
   }
   
   .cyber-highlight {
@@ -116,6 +105,10 @@
   .cyber-button {
     @apply px-4 py-2 bg-cyber hover:bg-cyber-light/80 text-white rounded-md border border-cyber-accent/20 transition-all duration-300 hover:border-cyber-glow/50 shadow-md hover:shadow-cyber-glow/20;
   }
+
+  .light-mode .cyber-button {
+    @apply text-gray-800 border-cyber-accent/40 hover:border-cyber-accent;
+  }
   
   .cyber-button-outline {
     @apply px-4 py-2 bg-transparent text-cyber-glow hover:bg-cyber-glow/10 rounded-md border border-cyber-glow/50 transition-all duration-300 shadow-md hover:shadow-cyber-glow/20;
@@ -124,8 +117,20 @@
   .section-title {
     @apply text-2xl md:text-3xl font-space font-bold text-white relative inline-block;
   }
+
+  .light-mode .section-title {
+    @apply text-cyber-dark;
+  }
   
   .section-title::after {
     @apply content-[''] absolute -bottom-2 left-0 w-full h-0.5 bg-cyber-glow rounded animate-pulse-slow;
+  }
+
+  .contact-item {
+    @apply flex items-center space-x-2 text-gray-300 hover:text-cyber-glow transition-colors duration-300;
+  }
+
+  .light-mode .contact-item {
+    @apply text-gray-600 hover:text-cyber-accent;
   }
 }

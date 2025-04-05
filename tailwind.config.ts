@@ -54,11 +54,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				cyber: {
-					dark: '#0f172a',
-					DEFAULT: '#1e293b',
-					light: '#334155',
-					accent: '#0d9488',
-					glow: '#22d3ee'
+					dark: 'var(--cyber-dark)',
+					DEFAULT: 'var(--cyber-default)',
+					light: 'var(--cyber-light)',
+					accent: 'var(--cyber-accent)',
+					glow: 'var(--cyber-glow)'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -108,13 +108,24 @@ export default {
 				'pulse-slow': {
 					'0%, 100%': { opacity: 1 },
 					'50%': { opacity: 0.8 }
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'glow': 'glow 4s infinite ease-in-out',
-				'pulse-slow': 'pulse-slow 4s infinite ease-in-out'
+				'pulse-slow': 'pulse-slow 4s infinite ease-in-out',
+				'fade-in': 'fade-in 0.8s ease-out forwards'
 			}
 		}
 	},

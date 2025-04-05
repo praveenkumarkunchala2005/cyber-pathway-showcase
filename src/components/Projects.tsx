@@ -15,7 +15,7 @@ interface ProjectProps {
 
 const ProjectCard = ({ title, description, technologies, date, githubLink, liveLink }: ProjectProps) => {
   return (
-    <Card className="cyber-card h-full flex flex-col">
+    <Card className="cyber-card h-full flex flex-col transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-glow/10">
       <CardHeader>
         <div className="flex items-center justify-between mb-2">
           <CardTitle className="text-xl text-white">{title}</CardTitle>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield } from 'lucide-react';
+import { ArrowRight, Shield, Mail, Phone, Github, Linkedin } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -19,21 +19,44 @@ const Hero = () => {
             <span className="text-sm font-medium text-cyber-glow">Computer Science with Cyber Security</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white mb-6 tracking-tight">
-            Building a <span className="cyber-highlight">Secure</span> Digital Future
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white mb-4 tracking-tight">
+            Praveen Kumar <span className="cyber-highlight">Kunchala</span>
           </h1>
+
+          <p className="text-xl text-gray-300 mb-4">
+            Building a <span className="cyber-highlight font-semibold">Secure</span> Digital Future
+          </p>
           
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
+          <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl">
             Aspiring cybersecurity engineer focused on creating robust security solutions.
             Currently pursuing B.Tech in Computer Science Engineering with a specialization in Cyber Security.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <a href="mailto:praveenkumarkunchala1122@gmail.com" className="contact-item">
+              <Mail className="h-5 w-5" />
+              <span>praveenkumarkunchala1122@gmail.com</span>
+            </a>
+            <a href="tel:+919347368517" className="contact-item">
+              <Phone className="h-5 w-5" />
+              <span>+91 9347368517</span>
+            </a>
+            <a href="#" className="contact-item">
+              <Linkedin className="h-5 w-5" />
+              <span>LinkedIn</span>
+            </a>
+            <a href="#" className="contact-item">
+              <Github className="h-5 w-5" />
+              <span>GitHub</span>
+            </a>
+          </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Button className="cyber-button group flex items-center">
+            <Button className="cyber-button group flex items-center w-full sm:w-auto">
               View Resume
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button className="cyber-button-outline">
+            <Button className="cyber-button-outline w-full sm:w-auto">
               Contact Me
             </Button>
           </div>
