@@ -53,6 +53,14 @@
     --cyber-light: #334155;
     --cyber-accent: #0d9488;
     --cyber-glow: #22d3ee;
+    --cyber-light-40: rgba(51, 65, 85, 0.4);
+    --cyber-light-70: rgba(51, 65, 85, 0.7);
+    --cyber-glow-5: rgba(34, 211, 238, 0.05);
+    --cyber-glow-10: rgba(34, 211, 238, 0.1);
+    --cyber-glow-20: rgba(34, 211, 238, 0.2);
+    --cyber-glow-50: rgba(34, 211, 238, 0.5);
+    --cyber-accent-20: rgba(13, 148, 136, 0.2);
+    --cyber-accent-40: rgba(13, 148, 136, 0.4);
   }
 
   .light-mode {
@@ -61,6 +69,14 @@
     --cyber-light: #cbd5e1;
     --cyber-accent: #0d9488;
     --cyber-glow: #0891b2;
+    --cyber-light-40: rgba(203, 213, 225, 0.4);
+    --cyber-light-70: rgba(203, 213, 225, 0.7);
+    --cyber-glow-5: rgba(8, 145, 178, 0.05);
+    --cyber-glow-10: rgba(8, 145, 178, 0.1);
+    --cyber-glow-20: rgba(8, 145, 178, 0.2);
+    --cyber-glow-50: rgba(8, 145, 178, 0.5);
+    --cyber-accent-20: rgba(13, 148, 136, 0.2);
+    --cyber-accent-40: rgba(13, 148, 136, 0.4);
   }
 
   * {
@@ -87,15 +103,15 @@
 
 @layer components {
   .cyber-card {
-    @apply bg-cyber border border-cyber-light/40 rounded-md overflow-hidden relative transition-colors duration-300;
+    @apply bg-cyber border border-[var(--cyber-light-40)] rounded-md overflow-hidden relative transition-colors duration-300;
   }
   
   .cyber-card::after {
-    @apply content-[''] absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyber-glow/5 to-transparent opacity-30 pointer-events-none;
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--cyber-glow-5)] to-transparent opacity-30 pointer-events-none;
   }
 
   .light-mode .cyber-card {
-    @apply border-cyber-light/70 shadow-md;
+    @apply border-[var(--cyber-light-70)] shadow-md;
   }
   
   .cyber-highlight {
@@ -103,15 +119,15 @@
   }
   
   .cyber-button {
-    @apply px-4 py-2 bg-cyber hover:bg-cyber-light/80 text-white rounded-md border border-cyber-accent/20 transition-all duration-300 hover:border-cyber-glow/50 shadow-md hover:shadow-cyber-glow/20;
+    @apply px-4 py-2 bg-cyber hover:bg-cyber-light/80 text-white rounded-md border border-[var(--cyber-accent-20)] transition-all duration-300 hover:border-[var(--cyber-glow-50)] shadow-md hover:shadow-[var(--cyber-glow-20)];
   }
 
   .light-mode .cyber-button {
-    @apply text-gray-800 border-cyber-accent/40 hover:border-cyber-accent;
+    @apply text-gray-800 border-[var(--cyber-accent-40)] hover:border-cyber-accent;
   }
   
   .cyber-button-outline {
-    @apply px-4 py-2 bg-transparent text-cyber-glow hover:bg-cyber-glow/10 rounded-md border border-cyber-glow/50 transition-all duration-300 shadow-md hover:shadow-cyber-glow/20;
+    @apply px-4 py-2 bg-transparent text-cyber-glow hover:bg-[var(--cyber-glow-10)] rounded-md border border-[var(--cyber-glow-50)] transition-all duration-300 shadow-md hover:shadow-[var(--cyber-glow-20)];
   }
   
   .section-title {
