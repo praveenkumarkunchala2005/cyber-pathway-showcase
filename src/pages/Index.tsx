@@ -3,6 +3,8 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Education from '@/components/Education';
+import Skills from '@/components/Skills';
+import Projects from '@/components/Projects';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -12,7 +14,8 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <Education />
-        {/* Additional sections can be added here */}
+        <Skills />
+        <Projects />
       </main>
       <Footer />
     </div>

@@ -1,0 +1,107 @@
+
+import React from 'react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Github, ExternalLink, Calendar } from 'lucide-react';
+
+interface ProjectProps {
+  title: string;
+  description: string;
+  technologies: string;
+  date: string;
+  githubLink?: string;
+  liveLink?: string;
+}
+
+const ProjectCard = ({ title, description, technologies, date, githubLink, liveLink }: ProjectProps) => {
+  return (
+    <Card className="cyber-card h-full flex flex-col">
+      <CardHeader>
+        <div className="flex items-center justify-between mb-2">
+          <CardTitle className="text-xl text-white">{title}</CardTitle>
+          <div className="flex items-center text-gray-400 text-sm">
+            <Calendar className="h-4 w-4 mr-1" />
+            <span>{date}</span>
+          </div>
+        </div>
+        <CardDescription className="text-gray-400">
+          <span className="text-cyber-glow font-medium">{technologies}</span>
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p className="text-gray-300">{description}</p>
+      </CardContent>
+      <CardFooter className="flex justify-start space-x-3 border-t border-cyber-light/20 pt-4">
+        {githubLink && (
+          <Button variant="outline" size="sm" className="cyber-button-outline" asChild>
+            <a href={githubLink} target="_blank" rel="noopener noreferrer">
+              <Github className="h-4 w-4 mr-1" />
+              GitHub
+            </a>
+          </Button>
+        )}
+        {liveLink && (
+          <Button variant="outline" size="sm" className="cyber-button-outline" asChild>
+            <a href={liveLink} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4 mr-1" />
+              Live Demo
+            </a>
+          </Button>
+        )}
+      </CardFooter>
+    </Card>
+  );
+};
+
+const Projects = () => {
+  return (
+    <section id="projects" className="py-16 px-4 md:px-8 relative">
+      {/* Background elements */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <div className="absolute left-0 bottom-0 w-60 h-60 bg-cyber-glow/5 rounded-full blur-[80px]"></div>
+        <div className="absolute right-0 top-0 w-40 h-40 bg-cyber-accent/5 rounded-full blur-[50px]"></div>
+      </div>
+      
+      <div className="container mx-auto relative z-10">
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <h2 className="section-title mb-4">
+            Projects
+          </h2>
+          <p className="text-gray-400 max-w-2xl">
+            Showcasing my journey in software development through various projects that demonstrate my skills and technical capabilities.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ProjectCard 
+            title="JetSetGo"
+            technologies="React.js, Clerk, TailwindCSS, Gemini API"
+            description="Developed a smart travel planning web app that generates personalized itineraries and recommends budget-friendly hotels using the Gemini API. Implemented user authentication with Clerk and integrated Firestore for data storage."
+            date="Feb 2025"
+            githubLink="#"
+            liveLink="#"
+          />
+          
+          <ProjectCard 
+            title="Web Scraper"
+            technologies="Node.js, Express.js"
+            description="Created a website scraper to extract semester results of students from the college website efficiently. Enabled seamless retrieval and access to students' results for administrative use within the college."
+            date="Jul 2024"
+            githubLink="#"
+          />
+          
+          <ProjectCard 
+            title="The HangMan Game"
+            technologies="React, TypeScript, TailwindCSS"
+            description="Developed a dynamic and user-friendly Game Mechanics using React and TypeScript. Ensured a responsive and visually appealing user interface using TailwindCSS."
+            date="Jan 2025"
+            githubLink="#"
+            liveLink="#"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
