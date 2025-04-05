@@ -1,10 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,40 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cyber-dark text-gray-100 font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-space;
+  }
+}
+
+@layer components {
+  .cyber-card {
+    @apply bg-cyber border border-cyber-light/40 rounded-md overflow-hidden relative;
+  }
+  
+  .cyber-card::after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyber-glow/5 to-transparent opacity-30 pointer-events-none;
+  }
+  
+  .cyber-highlight {
+    @apply text-cyber-glow;
+  }
+  
+  .cyber-button {
+    @apply px-4 py-2 bg-cyber hover:bg-cyber-light/80 text-white rounded-md border border-cyber-accent/20 transition-all duration-300 hover:border-cyber-glow/50 shadow-md hover:shadow-cyber-glow/20;
+  }
+  
+  .cyber-button-outline {
+    @apply px-4 py-2 bg-transparent text-cyber-glow hover:bg-cyber-glow/10 rounded-md border border-cyber-glow/50 transition-all duration-300 shadow-md hover:shadow-cyber-glow/20;
+  }
+  
+  .section-title {
+    @apply text-2xl md:text-3xl font-space font-bold text-white relative inline-block;
+  }
+  
+  .section-title::after {
+    @apply content-[''] absolute -bottom-2 left-0 w-full h-0.5 bg-cyber-glow rounded animate-pulse-slow;
   }
 }
