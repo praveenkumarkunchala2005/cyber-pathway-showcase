@@ -48,37 +48,39 @@
   }
 
   :root {
-    --cyber-dark: #0f172a;
-    --cyber-default: #1e293b;
-    --cyber-light: #334155;
-    --cyber-accent: #0d9488;
-    --cyber-glow: #22d3ee;
-    --cyber-light-40: rgba(51, 65, 85, 0.4);
-    --cyber-light-70: rgba(51, 65, 85, 0.7);
-    --cyber-light-80: rgba(51, 65, 85, 0.8);
-    --cyber-glow-5: rgba(34, 211, 238, 0.05);
-    --cyber-glow-10: rgba(34, 211, 238, 0.1);
-    --cyber-glow-20: rgba(34, 211, 238, 0.2);
-    --cyber-glow-50: rgba(34, 211, 238, 0.5);
-    --cyber-accent-20: rgba(13, 148, 136, 0.2);
-    --cyber-accent-40: rgba(13, 148, 136, 0.4);
+    /* Dark mode - updated for web dev feel */
+    --cyber-dark: #111827;
+    --cyber-default: #1f2937;
+    --cyber-light: #374151;
+    --cyber-accent: #3b82f6;
+    --cyber-glow: #60a5fa;
+    --cyber-light-40: rgba(55, 65, 81, 0.4);
+    --cyber-light-70: rgba(55, 65, 81, 0.7);
+    --cyber-light-80: rgba(55, 65, 81, 0.8);
+    --cyber-glow-5: rgba(96, 165, 250, 0.05);
+    --cyber-glow-10: rgba(96, 165, 250, 0.1);
+    --cyber-glow-20: rgba(96, 165, 250, 0.2);
+    --cyber-glow-50: rgba(96, 165, 250, 0.5);
+    --cyber-accent-20: rgba(59, 130, 246, 0.2);
+    --cyber-accent-40: rgba(59, 130, 246, 0.4);
   }
 
   .light-mode {
-    --cyber-dark: #f1f5f9;
-    --cyber-default: #e2e8f0;
-    --cyber-light: #cbd5e1;
-    --cyber-accent: #0d9488;
-    --cyber-glow: #0891b2;
-    --cyber-light-40: rgba(203, 213, 225, 0.4);
-    --cyber-light-70: rgba(203, 213, 225, 0.7);
-    --cyber-light-80: rgba(203, 213, 225, 0.8);
-    --cyber-glow-5: rgba(8, 145, 178, 0.05);
-    --cyber-glow-10: rgba(8, 145, 178, 0.1);
-    --cyber-glow-20: rgba(8, 145, 178, 0.2);
-    --cyber-glow-50: rgba(8, 145, 178, 0.5);
-    --cyber-accent-20: rgba(13, 148, 136, 0.2);
-    --cyber-accent-40: rgba(13, 148, 136, 0.4);
+    /* Light mode - improved with better colors */
+    --cyber-dark: #f8fafc;
+    --cyber-default: #f1f5f9;
+    --cyber-light: #e2e8f0;
+    --cyber-accent: #3b82f6;
+    --cyber-glow: #2563eb;
+    --cyber-light-40: rgba(226, 232, 240, 0.4);
+    --cyber-light-70: rgba(226, 232, 240, 0.7);
+    --cyber-light-80: rgba(226, 232, 240, 0.8);
+    --cyber-glow-5: rgba(37, 99, 235, 0.05);
+    --cyber-glow-10: rgba(37, 99, 235, 0.1);
+    --cyber-glow-20: rgba(37, 99, 235, 0.2);
+    --cyber-glow-50: rgba(37, 99, 235, 0.5);
+    --cyber-accent-20: rgba(59, 130, 246, 0.2);
+    --cyber-accent-40: rgba(59, 130, 246, 0.4);
   }
 
   * {
@@ -94,7 +96,7 @@
   }
 
   .light-mode .text-white {
-    @apply text-cyber-dark;
+    @apply text-gray-800;
   }
 
   .light-mode .text-gray-300, 
@@ -105,7 +107,7 @@
 
 @layer components {
   .cyber-card {
-    @apply bg-cyber border border-[var(--cyber-light-40)] rounded-md overflow-hidden relative transition-colors duration-300;
+    @apply bg-cyber border border-[var(--cyber-light-40)] rounded-lg overflow-hidden relative transition-colors duration-300 flex flex-col h-full;
   }
   
   .cyber-card::after {
@@ -121,11 +123,11 @@
   }
   
   .cyber-button {
-    @apply px-4 py-2 bg-cyber hover:bg-[var(--cyber-light-80)] text-white rounded-md border border-[var(--cyber-accent-20)] transition-all duration-300 hover:border-[var(--cyber-glow-50)] shadow-md hover:shadow-[var(--cyber-glow-20)];
+    @apply px-4 py-2 bg-cyber-accent text-white rounded-md border border-transparent transition-all duration-300 hover:bg-cyber-glow shadow-md;
   }
 
   .light-mode .cyber-button {
-    @apply text-gray-800 border-[var(--cyber-accent-40)] hover:border-cyber-accent;
+    @apply text-white border-transparent;
   }
   
   .cyber-button-outline {
@@ -137,7 +139,7 @@
   }
 
   .light-mode .section-title {
-    @apply text-cyber-dark;
+    @apply text-gray-800;
   }
   
   .section-title::after {
@@ -150,5 +152,13 @@
 
   .light-mode .contact-item {
     @apply text-gray-600 hover:text-cyber-accent;
+  }
+  
+  .skills-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  .achievements-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
   }
 }

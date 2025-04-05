@@ -15,8 +15,8 @@ interface ProjectProps {
 
 const ProjectCard = ({ title, description, technologies, date, githubLink, liveLink }: ProjectProps) => {
   return (
-    <Card className="cyber-card h-full flex flex-col transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-glow/10">
-      <CardHeader>
+    <Card className="cyber-card transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-glow/10">
+      <CardHeader className="pb-2">
         <div className="flex items-center justify-between mb-2">
           <CardTitle className="text-xl text-white">{title}</CardTitle>
           <div className="flex items-center text-gray-400 text-sm">
@@ -28,7 +28,7 @@ const ProjectCard = ({ title, description, technologies, date, githubLink, liveL
           <span className="text-cyber-glow font-medium">{technologies}</span>
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex-grow">
+      <CardContent className="flex-grow py-2">
         <p className="text-gray-300">{description}</p>
       </CardContent>
       <CardFooter className="flex justify-start space-x-3 border-t border-cyber-light/20 pt-4">
@@ -68,7 +68,7 @@ const Projects = () => {
             Projects
           </h2>
           <p className="text-gray-400 max-w-2xl">
-            Showcasing my journey in software development through various projects that demonstrate my skills and technical capabilities.
+            Showcasing my journey in web development through various projects that demonstrate my skills and technical capabilities.
           </p>
         </div>
         

@@ -5,7 +5,7 @@ import { Code, Server, Database, Languages, Award, GraduationCap } from 'lucide-
 
 const SkillCategory = ({ title, skills, icon }: { title: string; skills: string; icon: React.ReactNode }) => {
   return (
-    <Card className="cyber-card h-full">
+    <Card className="cyber-card">
       <CardHeader className="flex flex-row items-center gap-4 pb-2">
         <div className="h-8 w-8 text-cyber-glow">{icon}</div>
         <CardTitle className="text-lg text-white">{title}</CardTitle>
@@ -19,7 +19,7 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string;
 
 const Achievement = ({ title, date }: { title: string; date: string }) => {
   return (
-    <div className="flex items-start space-x-3 p-4 border border-cyber-light/30 rounded-md bg-cyber-dark/50">
+    <div className="flex items-start space-x-3 p-4 border border-cyber-light/30 rounded-md bg-cyber/80">
       <Award className="h-5 w-5 text-cyber-glow mt-0.5 flex-shrink-0" />
       <div>
         <p className="text-gray-200">{title}</p>
@@ -48,7 +48,7 @@ const Skills = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="skills-grid mb-16">
           <SkillCategory 
             title="Languages" 
             skills="C/C++, Java, Python, JavaScript, TypeScript"
@@ -95,7 +95,7 @@ const Skills = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="achievements-grid">
           <Achievement
             title="Specialist at Codeforces (max 1419) and 3 Star at CodeChef (max 1743)"
             date="Feb 2025"
