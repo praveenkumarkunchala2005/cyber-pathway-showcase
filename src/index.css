@@ -94,15 +94,16 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-space;
   }
+}
 
-  .light-mode .text-white {
-    @apply text-gray-800;
-  }
+/* Fix for circular dependencies - moved outside of @layer */
+.light-mode .text-white {
+  color: #1f2937; /* Dark gray color instead of using text-gray-800 */
+}
 
-  .light-mode .text-gray-300, 
-  .light-mode .text-gray-400 {
-    @apply text-gray-600;
-  }
+.light-mode .text-gray-300, 
+.light-mode .text-gray-400 {
+  color: #4b5563; /* Medium gray color instead of using text-gray-600 */
 }
 
 @layer components {
@@ -127,7 +128,8 @@
   }
 
   .light-mode .cyber-button {
-    @apply text-white border-transparent;
+    color: white; /* Direct color instead of using @apply text-white */
+    border-color: transparent; /* Direct color instead of using @apply border-transparent */
   }
   
   .cyber-button-outline {
@@ -135,11 +137,12 @@
   }
   
   .section-title {
-    @apply text-2xl md:text-3xl font-space font-bold text-white relative inline-block;
+    @apply text-2xl md:text-3xl font-space font-bold relative inline-block;
+    color: white; /* Direct color instead of using @apply text-white */
   }
 
   .light-mode .section-title {
-    @apply text-gray-800;
+    color: #1f2937; /* Direct color instead of using @apply text-gray-800 */
   }
   
   .section-title::after {
