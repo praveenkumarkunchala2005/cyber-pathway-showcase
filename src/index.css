@@ -48,29 +48,29 @@
   }
 
   :root {
-    /* Dark mode - updated for web dev feel */
-    --cyber-dark: #111827;
-    --cyber-default: #1f2937;
-    --cyber-light: #374151;
-    --cyber-accent: #3b82f6;
-    --cyber-glow: #60a5fa;
-    --cyber-light-40: rgba(55, 65, 81, 0.4);
-    --cyber-light-70: rgba(55, 65, 81, 0.7);
-    --cyber-light-80: rgba(55, 65, 81, 0.8);
-    --cyber-glow-5: rgba(96, 165, 250, 0.05);
-    --cyber-glow-10: rgba(96, 165, 250, 0.1);
-    --cyber-glow-20: rgba(96, 165, 250, 0.2);
-    --cyber-glow-50: rgba(96, 165, 250, 0.5);
-    --cyber-accent-20: rgba(59, 130, 246, 0.2);
-    --cyber-accent-40: rgba(59, 130, 246, 0.4);
+    /* Dark mode - updated for web dev and Classroom of the Elite theme */
+    --cyber-dark: #1A1F2C;
+    --cyber-default: #221F26;
+    --cyber-light: #2D3748;
+    --cyber-accent: #3E5FBA;
+    --cyber-glow: #5B8DEF;
+    --cyber-light-40: rgba(45, 55, 72, 0.4);
+    --cyber-light-70: rgba(45, 55, 72, 0.7);
+    --cyber-light-80: rgba(45, 55, 72, 0.8);
+    --cyber-glow-5: rgba(91, 141, 239, 0.05);
+    --cyber-glow-10: rgba(91, 141, 239, 0.1);
+    --cyber-glow-20: rgba(91, 141, 239, 0.2);
+    --cyber-glow-50: rgba(91, 141, 239, 0.5);
+    --cyber-accent-20: rgba(62, 95, 186, 0.2);
+    --cyber-accent-40: rgba(62, 95, 186, 0.4);
   }
 
   .light-mode {
-    /* Light mode - improved with better colors */
+    /* Light mode - improved for Classroom of the Elite */
     --cyber-dark: #f8fafc;
     --cyber-default: #f1f5f9;
     --cyber-light: #e2e8f0;
-    --cyber-accent: #3b82f6;
+    --cyber-accent: #3E5FBA;
     --cyber-glow: #2563eb;
     --cyber-light-40: rgba(226, 232, 240, 0.4);
     --cyber-light-70: rgba(226, 232, 240, 0.7);
@@ -79,8 +79,8 @@
     --cyber-glow-10: rgba(37, 99, 235, 0.1);
     --cyber-glow-20: rgba(37, 99, 235, 0.2);
     --cyber-glow-50: rgba(37, 99, 235, 0.5);
-    --cyber-accent-20: rgba(59, 130, 246, 0.2);
-    --cyber-accent-40: rgba(59, 130, 246, 0.4);
+    --cyber-accent-20: rgba(62, 95, 186, 0.2);
+    --cyber-accent-40: rgba(62, 95, 186, 0.4);
   }
 
   * {
@@ -109,14 +109,19 @@
 @layer components {
   .cyber-card {
     @apply bg-cyber border border-[var(--cyber-light-40)] rounded-lg overflow-hidden relative transition-colors duration-300 flex flex-col h-full;
+    background-image: linear-gradient(to bottom right, var(--cyber-default), var(--cyber-dark));
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
   
   .cyber-card::after {
-    @apply content-[''] absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--cyber-glow-5)] to-transparent opacity-30 pointer-events-none;
+    @apply content-[''] absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none;
+    background: linear-gradient(135deg, var(--cyber-glow-10) 0%, transparent 50%, var(--cyber-accent-20) 100%);
+    border-radius: inherit;
   }
 
   .light-mode .cyber-card {
     @apply border-[var(--cyber-light-70)] shadow-md;
+    background-image: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
   }
   
   .cyber-highlight {

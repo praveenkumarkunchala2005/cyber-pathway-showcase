@@ -19,7 +19,7 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string;
 
 const Achievement = ({ title, date }: { title: string; date: string }) => {
   return (
-    <div className="flex items-start space-x-3 p-4 border border-cyber-light/30 rounded-md bg-cyber/80">
+    <div className="flex items-start space-x-3 p-4 border border-cyber-light/30 rounded-md bg-gradient-to-br from-cyber-default to-cyber-dark">
       <Award className="h-5 w-5 text-cyber-glow mt-0.5 flex-shrink-0" />
       <div>
         <p className="text-gray-200">{title}</p>
