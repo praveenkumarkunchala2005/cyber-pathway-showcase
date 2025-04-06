@@ -123,6 +123,24 @@
     @apply border-[var(--cyber-light-70)] shadow-md;
     background-image: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
   }
+
+  .achievement-card {
+    @apply flex items-start space-x-3 p-4 rounded-md transition-all duration-300;
+    background: linear-gradient(to bottom right, var(--cyber-default), var(--cyber-dark));
+    border: 1px solid var(--cyber-light-40);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .light-mode .achievement-card {
+    background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+    border: 1px solid var(--cyber-light-70);
+  }
+
+  .achievement-card::after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none;
+    background: linear-gradient(135deg, var(--cyber-glow-10) 0%, transparent 50%, var(--cyber-accent-20) 100%);
+    border-radius: inherit;
+  }
   
   .cyber-highlight {
     @apply text-cyber-glow;
@@ -186,4 +204,44 @@
   .achievements-grid {
     @apply grid grid-cols-1 md:grid-cols-2 gap-4;
   }
+
+  .hover-scale {
+    @apply hover:scale-105 transition-transform duration-300 ease-in-out;
+  }
+
+  /* Additional animations */
+  .animate-fade-in {
+    @apply opacity-0;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Staggered animation delays for skills cards */
+  .skills-grid > *:nth-child(1) { animation-delay: 0.1s; }
+  .skills-grid > *:nth-child(2) { animation-delay: 0.2s; }
+  .skills-grid > *:nth-child(3) { animation-delay: 0.3s; }
+  .skills-grid > *:nth-child(4) { animation-delay: 0.4s; }
+  .skills-grid > *:nth-child(5) { animation-delay: 0.5s; }
+  .skills-grid > *:nth-child(6) { animation-delay: 0.6s; }
+
+  /* Staggered animation delays for achievement cards */
+  .achievements-grid > *:nth-child(1) { animation-delay: 0.1s; }
+  .achievements-grid > *:nth-child(2) { animation-delay: 0.15s; }
+  .achievements-grid > *:nth-child(3) { animation-delay: 0.2s; }
+  .achievements-grid > *:nth-child(4) { animation-delay: 0.25s; }
+  .achievements-grid > *:nth-child(5) { animation-delay: 0.3s; }
+  .achievements-grid > *:nth-child(6) { animation-delay: 0.35s; }
+  .achievements-grid > *:nth-child(7) { animation-delay: 0.4s; }
+  .achievements-grid > *:nth-child(8) { animation-delay: 0.45s; }
+  .achievements-grid > *:nth-child(9) { animation-delay: 0.5s; }
 }

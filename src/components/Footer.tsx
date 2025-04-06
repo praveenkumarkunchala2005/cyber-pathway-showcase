@@ -10,36 +10,36 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center space-x-2 mb-2">
               <Code className="h-5 w-5 text-cyber-glow" />
-              <span className="font-space text-lg font-bold text-white">Your Name</span>
+              <span className="font-space text-lg font-bold text-white">Praveen Kumar</span>
             </div>
             <p className="text-sm text-gray-400 mb-4 md:mb-0">
-              Frontend developer specializing in creating responsive, performant web applications
+              Full-stack developer specializing in responsive, modern web applications
             </p>
           </div>
           
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-            <a href="mailto:youremail@example.com" className="contact-item text-sm">
+            <a href="mailto:praveenkumarkunchala1122@gmail.com" className="contact-item text-sm">
               <Mail className="h-4 w-4" />
-              <span>youremail@example.com</span>
+              <span>praveenkumarkunchala1122@gmail.com</span>
             </a>
-            <a href="tel:+1234567890" className="contact-item text-sm">
+            <a href="tel:+919347368517" className="contact-item text-sm">
               <Phone className="h-4 w-4" />
-              <span>+1 (234) 567-890</span>
+              <span>+91 9347368517</span>
             </a>
           </div>
           
           <div className="flex items-center space-x-4">
-            <a href="https://github.com/yourusername" className="text-gray-400 hover:text-cyber-glow transition-colors">
+            <a href="#" className="text-gray-400 hover:text-cyber-glow transition-colors">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" className="text-gray-400 hover:text-cyber-glow transition-colors">
+            <a href="#" className="text-gray-400 hover:text-cyber-glow transition-colors">
               <Linkedin className="h-5 w-5" />
             </a>
           </div>
         </div>
         
         <div className="text-center mt-8 text-sm text-gray-400">
-          © {new Date().getFullYear()} Your Name | All rights reserved
+          © {new Date().getFullYear()} Praveen Kumar Kunchala | All rights reserved
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@ import { Code, Server, Database, Languages, Award, GraduationCap } from 'lucide-
 
 const SkillCategory = ({ title, skills, icon }: { title: string; skills: string; icon: React.ReactNode }) => {
   return (
-    <Card className="cyber-card">
+    <Card className="cyber-card animate-fade-in hover-scale">
       <CardHeader className="flex flex-row items-center gap-4 pb-2">
         <div className="h-8 w-8 text-cyber-glow">{icon}</div>
         <CardTitle className="text-lg text-white">{title}</CardTitle>
@@ -19,11 +19,11 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string;
 
 const Achievement = ({ title, date }: { title: string; date: string }) => {
   return (
-    <div className="flex items-start space-x-3 p-4 border border-cyber-light/30 rounded-md bg-gradient-to-br from-cyber-default to-cyber-dark">
+    <div className="achievement-card group hover:scale-[1.02] transition-transform duration-300 animate-fade-in">
       <Award className="h-5 w-5 text-cyber-glow mt-0.5 flex-shrink-0" />
       <div>
-        <p className="text-gray-200">{title}</p>
-        <p className="text-sm text-gray-400 mt-1">{date}</p>
+        <p className="text-gray-200 dark:text-gray-200 light:text-gray-700">{title}</p>
+        <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-500 mt-1">{date}</p>
       </div>
     </div>
   );
@@ -40,10 +40,10 @@ const Skills = () => {
       
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center justify-center text-center mb-12">
-          <h2 className="section-title mb-4">
+          <h2 className="section-title mb-4 animate-fade-in">
             Technical Skills
           </h2>
-          <p className="text-gray-400 max-w-2xl">
+          <p className="text-gray-400 max-w-2xl animate-fade-in">
             My technical expertise in web development, including frontend and backend technologies, frameworks, and development tools.
           </p>
         </div>
@@ -87,57 +87,57 @@ const Skills = () => {
         </div>
         
         <div className="flex flex-col items-center justify-center text-center mb-12">
-          <h2 className="section-title mb-4">
+          <h2 className="section-title mb-4 animate-fade-in">
             Achievements
           </h2>
-          <p className="text-gray-400 max-w-2xl">
-            Recognition and accomplishments that showcase my expertise in web development and problem-solving capabilities.
+          <p className="text-gray-400 max-w-2xl animate-fade-in">
+            Notable accomplishments and projects that demonstrate my web development skills and expertise.
           </p>
         </div>
         
         <div className="achievements-grid">
           <Achievement
-            title="Developed a React dashboard that increased client productivity by 35%"
+            title="Built responsive web interfaces that improved user engagement by 45%"
             date="Feb 2025"
           />
           
           <Achievement
-            title="Built an e-commerce platform that scaled to 10,000+ daily users"
+            title="Developed a React dashboard with 98% performance score on Lighthouse"
             date="Dec 2024"
           />
           
           <Achievement
-            title="Winner of Web Innovation Hackathon at TechConf 2024"
+            title="Winner of Frontend Innovation Hackathon at DevConf 2024"
             date="July 2024"
           />
           
           <Achievement
-            title="Created a PWA that reduced load times by 68% compared to previous version"
+            title="Created PWAs that reduced load times by 65% for mobile users"
             date="April 2024"
           />
           
           <Achievement
-            title="Open source contributor with 500+ GitHub stars across projects"
+            title="Open source contributor with 500+ stars across React components"
             date="Ongoing"
           />
           
           <Achievement
-            title="Led frontend development for a startup that secured $1.2M funding"
+            title="Led frontend development for a SaaS platform with 10k+ daily users"
             date="October 2024"
           />
           
           <Achievement
-            title="Optimized rendering performance reducing client's AWS costs by 40%"
+            title="Optimized web vitals reducing bounce rates by 35% for e-commerce client"
             date="September 2024"
           />
           
           <Achievement
-            title="Published technical articles with over 50,000 cumulative views"
+            title="Published technical articles on web performance with 50k+ views"
             date="January 2025"
           />
           
           <Achievement
-            title="Mentored 20+ junior developers who advanced to mid-level roles"
+            title="Mentored junior developers in modern frontend technologies"
             date="2023 - Present"
           />
         </div>
