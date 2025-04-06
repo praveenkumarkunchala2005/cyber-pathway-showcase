@@ -38,6 +38,14 @@ const Education = () => {
             duration="2020 - 2022"
             grade="Percentage: 95%"
           />
+
+          <EducationCard 
+            institution="Naagarjuna Model High School"
+            degree="Class 10th"
+            location="Hyderabad, Telangana"
+            duration="2019 - 2020"
+            grade="GPA: 10"
+          />
         </div>
       </div>
     </section>
