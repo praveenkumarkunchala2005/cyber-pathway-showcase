@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 @tailwind base;
@@ -50,34 +51,34 @@
     --cyber-dark: #1A1F2C;
     --cyber-default: #221F26;
     --cyber-light: #2D3748;
-    --cyber-accent: #3E5FBA;
-    --cyber-glow: #5B8DEF;
+    --cyber-accent: #7E69AB;
+    --cyber-glow: #9b87f5;
     --cyber-light-40: rgba(45, 55, 72, 0.4);
     --cyber-light-70: rgba(45, 55, 72, 0.7);
     --cyber-light-80: rgba(45, 55, 72, 0.8);
-    --cyber-glow-5: rgba(91, 141, 239, 0.05);
-    --cyber-glow-10: rgba(91, 141, 239, 0.1);
-    --cyber-glow-20: rgba(91, 141, 239, 0.2);
-    --cyber-glow-50: rgba(91, 141, 239, 0.5);
-    --cyber-accent-20: rgba(62, 95, 186, 0.2);
-    --cyber-accent-40: rgba(62, 95, 186, 0.4);
+    --cyber-glow-5: rgba(155, 135, 245, 0.05);
+    --cyber-glow-10: rgba(155, 135, 245, 0.1);
+    --cyber-glow-20: rgba(155, 135, 245, 0.2);
+    --cyber-glow-50: rgba(155, 135, 245, 0.5);
+    --cyber-accent-20: rgba(126, 105, 171, 0.2);
+    --cyber-accent-40: rgba(126, 105, 171, 0.4);
   }
 
   .light-mode {
     --cyber-dark: #f8fafc;
     --cyber-default: #f1f5f9;
     --cyber-light: #e2e8f0;
-    --cyber-accent: #3E5FBA;
-    --cyber-glow: #2563eb;
+    --cyber-accent: #7E69AB;
+    --cyber-glow: #6E59A5;
     --cyber-light-40: rgba(226, 232, 240, 0.4);
     --cyber-light-70: rgba(226, 232, 240, 0.7);
     --cyber-light-80: rgba(226, 232, 240, 0.8);
-    --cyber-glow-5: rgba(37, 99, 235, 0.05);
-    --cyber-glow-10: rgba(37, 99, 235, 0.1);
-    --cyber-glow-20: rgba(37, 99, 235, 0.2);
-    --cyber-glow-50: rgba(37, 99, 235, 0.5);
-    --cyber-accent-20: rgba(62, 95, 186, 0.2);
-    --cyber-accent-40: rgba(62, 95, 186, 0.4);
+    --cyber-glow-5: rgba(110, 89, 165, 0.05);
+    --cyber-glow-10: rgba(110, 89, 165, 0.1);
+    --cyber-glow-20: rgba(110, 89, 165, 0.2);
+    --cyber-glow-50: rgba(110, 89, 165, 0.5);
+    --cyber-accent-20: rgba(126, 105, 171, 0.2);
+    --cyber-accent-40: rgba(126, 105, 171, 0.4);
   }
 
   * {
