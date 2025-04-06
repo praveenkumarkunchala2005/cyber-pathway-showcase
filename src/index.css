@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 @tailwind base;
@@ -48,7 +47,6 @@
   }
 
   :root {
-    /* Dark mode - updated for web dev and Classroom of the Elite theme */
     --cyber-dark: #1A1F2C;
     --cyber-default: #221F26;
     --cyber-light: #2D3748;
@@ -66,7 +64,6 @@
   }
 
   .light-mode {
-    /* Light mode - improved for Classroom of the Elite */
     --cyber-dark: #f8fafc;
     --cyber-default: #f1f5f9;
     --cyber-light: #e2e8f0;
@@ -98,12 +95,20 @@
 
 /* Fix for circular dependencies - moved outside of @layer */
 .light-mode .text-white {
-  color: #1f2937; /* Dark gray color instead of using text-gray-800 */
+  color: #1f2937;
 }
 
 .light-mode .text-gray-300, 
 .light-mode .text-gray-400 {
-  color: #4b5563; /* Medium gray color instead of using text-gray-600 */
+  color: #4b5563;
+}
+
+.light-mode .achievement-card p:first-of-type {
+  color: #1f2937;
+}
+
+.light-mode .achievement-card p:last-of-type {
+  color: #4b5563;
 }
 
 @layer components {
@@ -125,7 +130,7 @@
   }
 
   .achievement-card {
-    @apply flex items-start space-x-3 p-4 rounded-md transition-all duration-300;
+    @apply flex items-start space-x-3 p-4 rounded-md transition-all duration-300 relative;
     background: linear-gradient(to bottom right, var(--cyber-default), var(--cyber-dark));
     border: 1px solid var(--cyber-light-40);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -137,9 +142,8 @@
   }
 
   .achievement-card::after {
-    @apply content-[''] absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none;
+    @apply content-[''] absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none rounded-md;
     background: linear-gradient(135deg, var(--cyber-glow-10) 0%, transparent 50%, var(--cyber-accent-20) 100%);
-    border-radius: inherit;
   }
   
   .cyber-highlight {
@@ -148,18 +152,18 @@
   
   .cyber-button {
     @apply px-4 py-2 bg-cyber-accent rounded-md border transition-all duration-300 hover:bg-cyber-glow shadow-md;
-    color: white; /* Direct color instead of using @apply text-white */
-    border-color: transparent; /* Direct color instead of using @apply border-transparent */
+    color: white;
+    border-color: transparent;
   }
 
   .light-mode .cyber-button {
-    color: white; /* Direct color instead of using @apply text-white */
-    border-color: transparent; /* Direct color instead of using @apply border-transparent */
+    color: white;
+    border-color: transparent;
   }
   
   .cyber-button-outline {
     @apply px-4 py-2 bg-transparent rounded-md transition-all duration-300 shadow-md hover:shadow-[var(--cyber-glow-20)];
-    color: var(--cyber-glow); /* Direct color instead of using @apply text-cyber-glow */
+    color: var(--cyber-glow);
     border: 1px solid var(--cyber-glow-50);
   }
   
@@ -169,11 +173,11 @@
   
   .section-title {
     @apply text-2xl md:text-3xl font-space font-bold relative inline-block;
-    color: white; /* Direct color instead of using @apply text-white */
+    color: white;
   }
 
   .light-mode .section-title {
-    color: #1f2937; /* Direct color instead of using @apply text-gray-800 */
+    color: #1f2937;
   }
   
   .section-title::after {
@@ -182,19 +186,19 @@
 
   .contact-item {
     @apply flex items-center space-x-2 transition-colors duration-300;
-    color: #d1d5db; /* Direct color instead of using @apply text-gray-300 */
+    color: #d1d5db;
   }
 
   .contact-item:hover {
-    color: var(--cyber-glow); /* Direct color instead of using @apply hover:text-cyber-glow */
+    color: var(--cyber-glow);
   }
 
   .light-mode .contact-item {
-    color: #4b5563; /* Direct color instead of using @apply text-gray-600 */
+    color: #4b5563;
   }
 
   .light-mode .contact-item:hover {
-    color: var(--cyber-accent); /* Direct color instead of using @apply hover:text-cyber-accent */
+    color: var(--cyber-accent);
   }
   
   .skills-grid {
@@ -209,10 +213,76 @@
     @apply hover:scale-105 transition-transform duration-300 ease-in-out;
   }
 
-  /* Additional animations */
   .animate-fade-in {
     @apply opacity-0;
     animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    @apply opacity-0;
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up-delay-1 {
+    @apply opacity-0;
+    animation: slideUp 0.5s ease-out 0.1s forwards;
+  }
+
+  .animate-slide-up-delay-2 {
+    @apply opacity-0;
+    animation: slideUp 0.5s ease-out 0.2s forwards;
+  }
+
+  .animate-slide-up-delay-3 {
+    @apply opacity-0;
+    animation: slideUp 0.5s ease-out 0.3s forwards;
+  }
+
+  .animate-slide-up-delay-4 {
+    @apply opacity-0;
+    animation: slideUp 0.5s ease-out 0.4s forwards;
+  }
+
+  .animate-bounce-slow {
+    animation: bounceSlow 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulseSlow 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-border-pulse {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-border-pulse::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, rgba(91, 141, 239, 0.3), transparent 30%);
+    animation: rotateBorder 4s linear infinite;
+  }
+
+  .hover-transform {
+    @apply transition-all duration-300;
+    transform: perspective(800px) rotateY(0) scale(1);
+  }
+  
+  .hover-transform:hover {
+    transform: perspective(800px) rotateY(5deg) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
   @keyframes fadeIn {
@@ -226,7 +296,68 @@
     }
   }
 
-  /* Staggered animation delays for skills cards */
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceSlow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-10px) translateX(10px);
+    }
+    50% {
+      transform: translateY(0) translateX(20px);
+    }
+    75% {
+      transform: translateY(10px) translateX(10px);
+    }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(91, 141, 239, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(91, 141, 239, 0.7);
+    }
+  }
+
+  @keyframes rotateBorder {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   .skills-grid > *:nth-child(1) { animation-delay: 0.1s; }
   .skills-grid > *:nth-child(2) { animation-delay: 0.2s; }
   .skills-grid > *:nth-child(3) { animation-delay: 0.3s; }
@@ -234,7 +365,6 @@
   .skills-grid > *:nth-child(5) { animation-delay: 0.5s; }
   .skills-grid > *:nth-child(6) { animation-delay: 0.6s; }
 
-  /* Staggered animation delays for achievement cards */
   .achievements-grid > *:nth-child(1) { animation-delay: 0.1s; }
   .achievements-grid > *:nth-child(2) { animation-delay: 0.15s; }
   .achievements-grid > *:nth-child(3) { animation-delay: 0.2s; }

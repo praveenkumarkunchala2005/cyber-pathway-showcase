@@ -24,53 +24,66 @@ const Hero = () => {
             "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
           )}
         />
+        
+        {/* Second dot pattern layer with different properties for added depth */}
+        <DotPattern 
+          glow={true}
+          width={32}
+          height={32}
+          cr={0.4}
+          className={cn(
+            "opacity-10",
+            "animate-pulse-slow",
+            "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]"
+          )}
+        />
       </div>
       
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-cyber-accent/10 border border-cyber-accent/30 mb-6 animate-fade-in">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-cyber-accent/10 border border-cyber-accent/30 mb-6 animate-bounce-slow">
             <Shield className="w-4 h-4 mr-2 text-cyber-glow" />
             <span className="text-sm font-medium text-cyber-glow">Full Stack Web Developer</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white mb-4 tracking-tight animate-fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white mb-4 tracking-tight animate-slide-up">
             Praveen Kumar <span className="cyber-highlight">Kunchala</span>
           </h1>
 
-          <p className="text-xl text-gray-300 mb-4 animate-fade-in">
+          <p className="text-xl text-gray-300 mb-4 animate-slide-up-delay-1">
             Building <span className="cyber-highlight font-semibold">Modern</span> Web Experiences
           </p>
           
-          <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl animate-fade-in">
+          <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl animate-slide-up-delay-2">
             Passionate full-stack web developer specializing in creating responsive, performant web applications
             with modern technologies like React, Next.js, and Node.js.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in">
-            <a href="mailto:praveenkumarkunchala1122@gmail.com" className="contact-item">
+          <div className="flex flex-wrap justify-center gap-4 mb-8 animate-slide-up-delay-3">
+            <a href="mailto:praveenkumarkunchala1122@gmail.com" className="contact-item hover:scale-105 transition-transform">
               <Mail className="h-5 w-5" />
               <span>praveenkumarkunchala1122@gmail.com</span>
             </a>
-            <a href="tel:+919347368517" className="contact-item">
+            <a href="tel:+919347368517" className="contact-item hover:scale-105 transition-transform">
               <Phone className="h-5 w-5" />
               <span>+91 9347368517</span>
             </a>
-            <a href="#" className="contact-item">
+            <a href="#" className="contact-item hover:scale-105 transition-transform">
               <Linkedin className="h-5 w-5" />
               <span>LinkedIn</span>
             </a>
-            <a href="#" className="contact-item">
+            <a href="#" className="contact-item hover:scale-105 transition-transform">
               <Github className="h-5 w-5" />
               <span>GitHub</span>
             </a>
           </div>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in">
-            <Button className="cyber-button group flex items-center w-full sm:w-auto hover-scale">
+          <div className="flex flex-col sm:flex-row items-center gap-4 animate-slide-up-delay-4">
+            <Button className="cyber-button group flex items-center w-full sm:w-auto hover-scale animate-pulse-glow">
               View Resume
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button className="cyber-button-outline w-full sm:w-auto hover-scale">
+            <Button className="cyber-button-outline w-full sm:w-auto hover-scale animate-border-pulse">
               Contact Me
             </Button>
           </div>
