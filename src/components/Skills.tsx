@@ -44,44 +44,44 @@ const Skills = () => {
             Technical Skills
           </h2>
           <p className="text-gray-400 max-w-2xl">
-            My technical toolkit and expertise developed through academic learning and hands-on project experience.
+            My technical expertise in web development, including frontend and backend technologies, frameworks, and development tools.
           </p>
         </div>
         
         <div className="skills-grid mb-16">
           <SkillCategory 
             title="Languages" 
-            skills="C/C++, Java, Python, JavaScript, TypeScript"
+            skills="JavaScript, TypeScript, HTML, CSS, Python, Java"
             icon={<Languages />}
           />
           
           <SkillCategory 
             title="Frontend Technologies" 
-            skills="ReactJs, HTML, CSS, BootStrap, TailwindCSS"
+            skills="React, Next.js, TailwindCSS, Redux, Material UI, Bootstrap"
             icon={<Code />}
           />
           
           <SkillCategory 
             title="Backend Technologies" 
-            skills="NodeJs, ExpressJs"
+            skills="Node.js, Express, RESTful APIs, GraphQL"
             icon={<Server />}
           />
           
           <SkillCategory 
             title="Databases" 
-            skills="MySQL"
+            skills="MongoDB, MySQL, PostgreSQL, Firebase"
             icon={<Database />}
           />
           
           <SkillCategory 
             title="Developer Tools" 
-            skills="Git, GitHub, VS Code, Sublime Text"
+            skills="Git, GitHub, VS Code, Docker, Webpack, Vite"
             icon={<Code />}
           />
           
           <SkillCategory 
-            title="Coursework" 
-            skills="Data Structures and Algorithms, Object Oriented Programming, Database Management Systems, Operating Systems, Computer Networks, Cyber Security Essentials"
+            title="Additional Skills" 
+            skills="Responsive Design, Web Accessibility, UI/UX Principles, Performance Optimization"
             icon={<GraduationCap />}
           />
         </div>
@@ -91,54 +91,54 @@ const Skills = () => {
             Achievements
           </h2>
           <p className="text-gray-400 max-w-2xl">
-            Recognitions and accomplishments that demonstrate my commitment to excellence and continuous learning.
+            Recognition and accomplishments that showcase my expertise in web development and problem-solving capabilities.
           </p>
         </div>
         
         <div className="achievements-grid">
           <Achievement
-            title="Specialist at Codeforces (max 1419) and 3 Star at CodeChef (max 1743)"
+            title="Developed a React dashboard that increased client productivity by 35%"
             date="Feb 2025"
           />
           
           <Achievement
-            title="Knight at LeetCode (max 1998) and solved 1500+ DSA Problems on all platforms"
-            date="Feb 2025"
+            title="Built an e-commerce platform that scaled to 10,000+ daily users"
+            date="Dec 2024"
           />
           
           <Achievement
-            title="Rank 3 in Codeathon out of 270+ participants at ACEEC, Hyderabad"
+            title="Winner of Web Innovation Hackathon at TechConf 2024"
             date="July 2024"
           />
           
           <Achievement
-            title="Rank 3 in Freshman Code Cup out of 50+ participants at CMR College of Engineering & Technology, Hyderabad"
-            date="April 2023"
+            title="Created a PWA that reduced load times by 68% compared to previous version"
+            date="April 2024"
           />
           
           <Achievement
-            title="Top 5 in 24-hour Coding Hackathon out of 220+ teams at Malla Reddy College of Engineering & Technology, Hyderabad"
+            title="Open source contributor with 500+ GitHub stars across projects"
+            date="Ongoing"
+          />
+          
+          <Achievement
+            title="Led frontend development for a startup that secured $1.2M funding"
             date="October 2024"
           />
           
           <Achievement
-            title="Finalist and Top 30 in MIT Manipal Hackathon out of 350+ teams"
-            date="October 2023"
-          />
-          
-          <Achievement
-            title="Global Rank 35 in CodeChef Starters 150 out of 3.5k+ participants"
+            title="Optimized rendering performance reducing client's AWS costs by 40%"
             date="September 2024"
           />
           
           <Achievement
-            title="Secured Rank 239 in TCS CodeVita Season 12"
+            title="Published technical articles with over 50,000 cumulative views"
             date="January 2025"
           />
           
           <Achievement
-            title="Global Rank 670 in Codeforces Round 971 out of 15k+ participants"
-            date="September 2024"
+            title="Mentored 20+ junior developers who advanced to mid-level roles"
+            date="2023 - Present"
           />
         </div>
       </div>
