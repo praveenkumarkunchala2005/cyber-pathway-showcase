@@ -96,6 +96,7 @@ const Projects = () => {
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <div className="absolute left-0 bottom-0 w-60 h-60 bg-cyber-glow/5 rounded-full blur-[80px] parallax-scroll"></div>
         <div className="absolute right-0 top-0 w-40 h-40 bg-cyber-accent/5 rounded-full blur-[50px] parallax-scroll"></div>
+        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#8B5CF6_1px,transparent_1px)] bg-[size:30px_30px]"></div>
       </div>
       
       <div className="container mx-auto relative z-10">
