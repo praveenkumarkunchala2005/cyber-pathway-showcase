@@ -73,11 +73,13 @@ const Projects = () => {
     // Add hover effect that follows cursor
     cards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
-        const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        // Cast the event to MouseEvent to access clientX and clientY properties
+        const mouseEvent = e as MouseEvent;
+        const rect = (mouseEvent.currentTarget as HTMLElement).getBoundingClientRect();
+        const x = mouseEvent.clientX - rect.left;
+        const y = mouseEvent.clientY - rect.top;
         
-        const cardElement = e.currentTarget as HTMLElement;
+        const cardElement = mouseEvent.currentTarget as HTMLElement;
         cardElement.style.background = `radial-gradient(circle at ${x}px ${y}px, var(--cyber-glow-5), transparent 60%)`;
       });
       

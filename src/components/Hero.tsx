@@ -38,7 +38,7 @@ const Hero = () => {
   }, []);
   
   return (
-    <section id="home" className="relative min-h-[80vh] flex items-center py-16 px-4 md:px-8 overflow-hidden" id="hero-section">
+    <section id="home" className="relative min-h-[80vh] flex items-center py-16 px-4 md:px-8 overflow-hidden">
       {/* Background elements - cyber-themed grid and dots */}
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#8B5CF6_1px,transparent_1px)] bg-[size:40px_40px]"></div>
