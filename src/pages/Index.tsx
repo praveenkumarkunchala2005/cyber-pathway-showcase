@@ -27,8 +27,9 @@ const Index = () => {
     const parallaxObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.transform = 'translateY(0)';
-          entry.target.style.opacity = '1';
+          const target = entry.target as HTMLElement;
+          target.style.transform = 'translateY(0)';
+          target.style.opacity = '1';
         }
       });
     }, { threshold: 0.1 });

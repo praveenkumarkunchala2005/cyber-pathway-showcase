@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 @tailwind base;
@@ -116,12 +117,28 @@
   color: #4b5563;
 }
 
+.light-mode .section-title {
+  color: #1f2937;
+}
+
 .light-mode .achievement-card p:first-of-type {
   color: #1f2937;
 }
 
 .light-mode .achievement-card p:last-of-type {
   color: #4b5563;
+}
+
+.light-mode .cyber-card h3 {
+  color: #1f2937;
+}
+
+.light-mode .cyber-card p {
+  color: #4b5563;
+}
+
+.light-mode .bg-cyber-dark {
+  background-color: var(--cyber-dark);
 }
 
 @layer components {
@@ -324,13 +341,15 @@
   }
 
   .glass-effect {
-    @apply backdrop-blur-lg border border-cyber-light/20;
+    @apply backdrop-blur-lg;
     background-color: rgba(34, 31, 38, 0.75);
+    border: 1px solid rgba(45, 55, 72, 0.2);
   }
   
   .light-mode .glass-effect {
-    @apply backdrop-blur-lg border border-cyber-light/30;
+    @apply backdrop-blur-lg;
     background-color: rgba(248, 250, 252, 0.85);
+    border: 1px solid rgba(224, 231, 255, 0.3);
     box-shadow: 0 8px 32px rgba(100, 100, 111, 0.1);
   }
 
@@ -375,6 +394,33 @@
   .reveal-fade-left.active {
     opacity: 1;
     transform: translateX(0);
+  }
+
+  /* New animations */
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease-out;
+  }
+
+  .reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .reveal-rotate {
+    opacity: 0;
+    transform: rotate(-5deg) scale(0.95);
+    transition: all 0.8s ease-out;
+  }
+
+  .reveal-rotate.active {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  .parallax-scroll {
+    transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   /* Delay classes for scroll animations */
