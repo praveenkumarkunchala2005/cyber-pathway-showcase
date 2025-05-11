@@ -311,11 +311,13 @@
   }
 
   .glass-effect {
-    @apply backdrop-blur-lg bg-cyber-default/70 border border-cyber-light/20;
+    @apply backdrop-blur-lg border border-cyber-light/20;
+    background-color: rgba(34, 31, 38, 0.7);
   }
   
   .light-mode .glass-effect {
-    @apply backdrop-blur-lg bg-white/70 border border-cyber-light/30;
+    @apply backdrop-blur-lg border border-cyber-light/30;
+    background-color: rgba(255, 255, 255, 0.7);
   }
 
   @keyframes fadeIn {
