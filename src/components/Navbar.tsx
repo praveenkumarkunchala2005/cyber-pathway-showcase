@@ -26,8 +26,8 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Shield className="h-6 w-6 text-cyber-glow animate-pulse-slow" />
-            <span className="font-space text-xl font-bold text-white">Praveen K</span>
+            <Shield className={`h-6 w-6 ${theme === 'dark' ? 'text-cyber-glow' : 'text-cyber-accent'} animate-pulse-slow`} />
+            <span className={`font-space text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Praveen K</span>
           </div>
           
           <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex md:items-center absolute md:relative top-16 md:top-0 left-0 right-0 ${
@@ -46,12 +46,15 @@ const Navbar = () => {
               size="icon" 
               className={`bg-transparent border-cyber-light/30 hover:text-cyber-glow hover:border-cyber-glow/50 ${
                 theme === 'dark' ? 'text-yellow-200' : 'text-purple-600'
-              } hover:bg-cyber-glow/5`}
+              } hover:bg-cyber-glow/5 transition-all duration-300 hover:scale-105`}
             >
               {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
             
-            <Button className="cyber-button-outline hidden md:flex">
+            <Button 
+              className="cyber-button-outline hidden md:flex hover:animate-soft-rotate"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Contact Me
             </Button>
             

@@ -14,14 +14,14 @@ const Index = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
+          entry.target.classList.add('active');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('section').forEach(section => {
-      section.classList.add('opacity-0');
-      observer.observe(section);
+    // Observe all elements with reveal classes
+    document.querySelectorAll('.reveal, .reveal-fade-up, .reveal-fade-right, .reveal-fade-left').forEach(element => {
+      observer.observe(element);
     });
 
     return () => observer.disconnect();

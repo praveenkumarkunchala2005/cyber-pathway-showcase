@@ -25,7 +25,7 @@ const Education = () => {
       </div>
       
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center justify-center text-center mb-12">
+        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
           <h2 className="section-title mb-4">
             Academic Background
           </h2>
@@ -35,30 +35,36 @@ const Education = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <EducationCard 
-            institution="CMR College of Engineering & Technology"
-            degree="B.Tech in Computer Science Engineering (Cyber Security)"
-            location="Medchal, Telangana"
-            duration="Nov. 2022 - May 2026 (Expected)"
-            grade="GPA: 8.02"
-            isActive={true}
-          />
+          <div className="reveal-fade-right delay-100">
+            <EducationCard 
+              institution="CMR College of Engineering & Technology"
+              degree="B.Tech in Computer Science Engineering (Cyber Security)"
+              location="Medchal, Telangana"
+              duration="Nov. 2022 - May 2026 (Expected)"
+              grade="GPA: 8.02"
+              isActive={true}
+            />
+          </div>
           
-          <EducationCard 
-            institution="Narayana Jr College"
-            degree="Class 12th"
-            location="Hyderabad, Telangana"
-            duration="2020 - 2022"
-            grade="Percentage: 95%"
-          />
+          <div className="reveal-fade-left delay-200">
+            <EducationCard 
+              institution="Narayana Jr College"
+              degree="Class 12th"
+              location="Hyderabad, Telangana"
+              duration="2020 - 2022"
+              grade="Percentage: 95%"
+            />
+          </div>
 
-          <EducationCard 
-            institution="Naagarjuna Model High School"
-            degree="Class 10th"
-            location="Hyderabad, Telangana"
-            duration="2019 - 2020"
-            grade="GPA: 10"
-          />
+          <div className="reveal-fade-right delay-300">
+            <EducationCard 
+              institution="Naagarjuna Model High School"
+              degree="Class 10th"
+              location="Hyderabad, Telangana"
+              duration="2019 - 2020"
+              grade="GPA: 10"
+            />
+          </div>
         </div>
       </div>
     </section>

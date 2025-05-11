@@ -3,9 +3,9 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Code, Server, Database, Languages, Award, GraduationCap } from 'lucide-react';
 
-const SkillCategory = ({ title, skills, icon }: { title: string; skills: string; icon: React.ReactNode }) => {
+const SkillCategory = ({ title, skills, icon, className }: { title: string; skills: string; icon: React.ReactNode; className?: string }) => {
   return (
-    <Card className="cyber-card animate-fade-in hover-transform">
+    <Card className={`cyber-card hover-transform ${className}`}>
       <CardHeader className="flex flex-row items-center gap-4 pb-2">
         <div className="h-8 w-8 text-cyber-glow animate-pulse-subtle">{icon}</div>
         <CardTitle className="text-lg text-white">{title}</CardTitle>
@@ -17,9 +17,9 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string;
   );
 };
 
-const Achievement = ({ title, date }: { title: string; date: string }) => {
+const Achievement = ({ title, date, className }: { title: string; date: string; className?: string }) => {
   return (
-    <div className="achievement-card group hover:scale-[1.02] transition-transform duration-300 animate-fade-in">
+    <div className={`achievement-card group hover:scale-[1.02] transition-transform duration-300 ${className}`}>
       <Award className="h-5 w-5 text-cyber-glow mt-0.5 flex-shrink-0 group-hover:rotate-12 transition-transform" />
       <div>
         <p className="text-white dark:text-white light-mode:text-gray-800">{title}</p>
@@ -39,107 +39,137 @@ const Skills = () => {
       </div>
       
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center justify-center text-center mb-12">
-          <h2 className="section-title mb-4 animate-fade-in">
+        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
+          <h2 className="section-title mb-4">
             Technical Skills
           </h2>
-          <p className="text-gray-400 max-w-2xl animate-fade-in">
+          <p className="text-gray-400 max-w-2xl">
             My technical expertise in web development, including frontend and backend technologies, frameworks, and development tools.
           </p>
         </div>
         
         <div className="skills-grid mb-16">
-          <SkillCategory 
-            title="Languages" 
-            skills="JavaScript, TypeScript, HTML, CSS, Python, Java"
-            icon={<Languages />}
-          />
+          <div className="reveal-fade-up delay-100">
+            <SkillCategory 
+              title="Languages" 
+              skills="JavaScript, TypeScript, HTML, CSS, Python, Java"
+              icon={<Languages />}
+            />
+          </div>
           
-          <SkillCategory 
-            title="Frontend Technologies" 
-            skills="React, Next.js, TailwindCSS, Redux, Material UI, Bootstrap"
-            icon={<Code />}
-          />
+          <div className="reveal-fade-up delay-200">
+            <SkillCategory 
+              title="Frontend Technologies" 
+              skills="React, Next.js, TailwindCSS, Redux, Material UI, Bootstrap"
+              icon={<Code />}
+            />
+          </div>
           
-          <SkillCategory 
-            title="Backend Technologies" 
-            skills="Node.js, Express, RESTful APIs, GraphQL"
-            icon={<Server />}
-          />
+          <div className="reveal-fade-up delay-300">
+            <SkillCategory 
+              title="Backend Technologies" 
+              skills="Node.js, Express, RESTful APIs, GraphQL"
+              icon={<Server />}
+            />
+          </div>
           
-          <SkillCategory 
-            title="Databases" 
-            skills="MongoDB, MySQL, PostgreSQL, Firebase"
-            icon={<Database />}
-          />
+          <div className="reveal-fade-up delay-100">
+            <SkillCategory 
+              title="Databases" 
+              skills="MongoDB, MySQL, PostgreSQL, Firebase"
+              icon={<Database />}
+            />
+          </div>
           
-          <SkillCategory 
-            title="Developer Tools" 
-            skills="Git, GitHub, VS Code, Docker, Webpack, Vite"
-            icon={<Code />}
-          />
+          <div className="reveal-fade-up delay-200">
+            <SkillCategory 
+              title="Developer Tools" 
+              skills="Git, GitHub, VS Code, Docker, Webpack, Vite"
+              icon={<Code />}
+            />
+          </div>
           
-          <SkillCategory 
-            title="Additional Skills" 
-            skills="Responsive Design, Web Accessibility, UI/UX Principles, Performance Optimization"
-            icon={<GraduationCap />}
-          />
+          <div className="reveal-fade-up delay-300">
+            <SkillCategory 
+              title="Additional Skills" 
+              skills="Responsive Design, Web Accessibility, UI/UX Principles, Performance Optimization"
+              icon={<GraduationCap />}
+            />
+          </div>
         </div>
         
-        <div className="flex flex-col items-center justify-center text-center mb-12">
-          <h2 className="section-title mb-4 animate-fade-in">
+        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
+          <h2 className="section-title mb-4">
             Achievements
           </h2>
-          <p className="text-gray-400 max-w-2xl animate-fade-in">
+          <p className="text-gray-400 max-w-2xl">
             Notable accomplishments and projects that demonstrate my web development skills and expertise.
           </p>
         </div>
         
         <div className="achievements-grid">
-          <Achievement
-            title="Built responsive web interfaces that improved user engagement by 45%"
-            date="Feb 2025"
-          />
+          <div className="reveal-fade-right delay-100">
+            <Achievement
+              title="Built responsive web interfaces that improved user engagement by 45%"
+              date="Feb 2025"
+            />
+          </div>
           
-          <Achievement
-            title="Developed a React dashboard with 98% performance score on Lighthouse"
-            date="Dec 2024"
-          />
+          <div className="reveal-fade-left delay-100">
+            <Achievement
+              title="Developed a React dashboard with 98% performance score on Lighthouse"
+              date="Dec 2024"
+            />
+          </div>
           
-          <Achievement
-            title="Winner of Frontend Innovation Hackathon at DevConf 2024"
-            date="July 2024"
-          />
+          <div className="reveal-fade-right delay-200">
+            <Achievement
+              title="Winner of Frontend Innovation Hackathon at DevConf 2024"
+              date="July 2024"
+            />
+          </div>
           
-          <Achievement
-            title="Created PWAs that reduced load times by 65% for mobile users"
-            date="April 2024"
-          />
+          <div className="reveal-fade-left delay-200">
+            <Achievement
+              title="Created PWAs that reduced load times by 65% for mobile users"
+              date="April 2024"
+            />
+          </div>
           
-          <Achievement
-            title="Open source contributor with 500+ stars across React components"
-            date="Ongoing"
-          />
+          <div className="reveal-fade-right delay-300">
+            <Achievement
+              title="Open source contributor with 500+ stars across React components"
+              date="Ongoing"
+            />
+          </div>
           
-          <Achievement
-            title="Led frontend development for a SaaS platform with 10k+ daily users"
-            date="October 2024"
-          />
+          <div className="reveal-fade-left delay-300">
+            <Achievement
+              title="Led frontend development for a SaaS platform with 10k+ daily users"
+              date="October 2024"
+            />
+          </div>
           
-          <Achievement
-            title="Optimized web vitals reducing bounce rates by 35% for e-commerce client"
-            date="September 2024"
-          />
+          <div className="reveal-fade-right delay-400">
+            <Achievement
+              title="Optimized web vitals reducing bounce rates by 35% for e-commerce client"
+              date="September 2024"
+            />
+          </div>
           
-          <Achievement
-            title="Published technical articles on web performance with 50k+ views"
-            date="January 2025"
-          />
+          <div className="reveal-fade-left delay-400">
+            <Achievement
+              title="Published technical articles on web performance with 50k+ views"
+              date="January 2025"
+            />
+          </div>
           
-          <Achievement
-            title="Mentored junior developers in modern frontend technologies"
-            date="2023 - Present"
-          />
+          <div className="reveal-fade-up delay-500">
+            <Achievement
+              title="Mentored junior developers in modern frontend technologies"
+              date="2023 - Present"
+            />
+          </div>
         </div>
       </div>
     </section>

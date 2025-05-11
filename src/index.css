@@ -83,6 +83,7 @@
 
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -141,6 +142,7 @@
   .light-mode .achievement-card {
     background: linear-gradient(to bottom right, #f8fafc, #eef2ff);
     border: 1px solid var(--cyber-light-70);
+    box-shadow: 0 4px 15px rgba(109, 40, 217, 0.08);
   }
 
   .achievement-card::after {
@@ -317,8 +319,58 @@
   
   .light-mode .glass-effect {
     @apply backdrop-blur-lg border border-cyber-light/30;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(248, 250, 252, 0.7);
   }
+
+  /* Scroll reveal animations */
+  .reveal {
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+  }
+
+  .reveal.active {
+    opacity: 1;
+  }
+
+  .reveal-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  .reveal-fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-fade-right {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s ease-out;
+  }
+
+  .reveal-fade-right.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-fade-left {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  .reveal-fade-left.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Delay classes for scroll animations */
+  .delay-100 { transition-delay: 0.1s; }
+  .delay-200 { transition-delay: 0.2s; }
+  .delay-300 { transition-delay: 0.3s; }
+  .delay-400 { transition-delay: 0.4s; }
+  .delay-500 { transition-delay: 0.5s; }
 
   @keyframes fadeIn {
     0% {

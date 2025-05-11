@@ -11,11 +11,12 @@ interface ProjectProps {
   date: string;
   githubLink?: string;
   liveLink?: string;
+  className?: string;
 }
 
-const ProjectCard = ({ title, description, technologies, date, githubLink, liveLink }: ProjectProps) => {
+const ProjectCard = ({ title, description, technologies, date, githubLink, liveLink, className }: ProjectProps) => {
   return (
-    <Card className="cyber-card transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-glow/10">
+    <Card className={`cyber-card transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-glow/10 ${className}`}>
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between mb-2">
           <CardTitle className="text-xl text-white">{title}</CardTitle>
@@ -63,7 +64,7 @@ const Projects = () => {
       </div>
       
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center justify-center text-center mb-12">
+        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
           <h2 className="section-title mb-4">
             Projects
           </h2>
@@ -73,31 +74,37 @@ const Projects = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ProjectCard 
-            title="JetSetGo"
-            technologies="React.js, Clerk, TailwindCSS, Gemini API"
-            description="Developed a smart travel planning web app that generates personalized itineraries and recommends budget-friendly hotels using the Gemini API. Implemented user authentication with Clerk and integrated Firestore for data storage."
-            date="Feb 2025"
-            githubLink="#"
-            liveLink="#"
-          />
+          <div className="reveal-fade-up delay-100">
+            <ProjectCard 
+              title="JetSetGo"
+              technologies="React.js, Clerk, TailwindCSS, Gemini API"
+              description="Developed a smart travel planning web app that generates personalized itineraries and recommends budget-friendly hotels using the Gemini API. Implemented user authentication with Clerk and integrated Firestore for data storage."
+              date="Feb 2025"
+              githubLink="#"
+              liveLink="#"
+            />
+          </div>
           
-          <ProjectCard 
-            title="Web Scraper"
-            technologies="Node.js, Express.js"
-            description="Created a website scraper to extract semester results of students from the college website efficiently. Enabled seamless retrieval and access to students' results for administrative use within the college."
-            date="Jul 2024"
-            githubLink="#"
-          />
+          <div className="reveal-fade-up delay-200">
+            <ProjectCard 
+              title="Web Scraper"
+              technologies="Node.js, Express.js"
+              description="Created a website scraper to extract semester results of students from the college website efficiently. Enabled seamless retrieval and access to students' results for administrative use within the college."
+              date="Jul 2024"
+              githubLink="#"
+            />
+          </div>
           
-          <ProjectCard 
-            title="The HangMan Game"
-            technologies="React, TypeScript, TailwindCSS"
-            description="Developed a dynamic and user-friendly Game Mechanics using React and TypeScript. Ensured a responsive and visually appealing user interface using TailwindCSS."
-            date="Jan 2025"
-            githubLink="#"
-            liveLink="#"
-          />
+          <div className="reveal-fade-up delay-300">
+            <ProjectCard 
+              title="The HangMan Game"
+              technologies="React, TypeScript, TailwindCSS"
+              description="Developed a dynamic and user-friendly Game Mechanics using React and TypeScript. Ensured a responsive and visually appealing user interface using TailwindCSS."
+              date="Jan 2025"
+              githubLink="#"
+              liveLink="#"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -126,6 +126,58 @@ export default {
 					'100%': {
 						backgroundPosition: '200% 0'
 					}
+				},
+				'reveal-up': {
+					'0%': {
+						transform: 'translateY(30px)',
+						opacity: '0'
+					},
+					'100%': {
+						transform: 'translateY(0)',
+						opacity: '1'
+					}
+				},
+				'reveal-right': {
+					'0%': {
+						transform: 'translateX(-30px)',
+						opacity: '0'
+					},
+					'100%': {
+						transform: 'translateX(0)',
+						opacity: '1'
+					}
+				},
+				'reveal-left': {
+					'0%': {
+						transform: 'translateX(30px)',
+						opacity: '0'
+					},
+					'100%': {
+						transform: 'translateX(0)',
+						opacity: '1'
+					}
+				},
+				'soft-bounce': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'soft-rotate': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'25%': {
+						transform: 'rotate(3deg)'
+					},
+					'75%': {
+						transform: 'rotate(-3deg)'
+					},
+					'100%': {
+						transform: 'rotate(0deg)'
+					}
 				}
 			},
 			animation: {
@@ -134,7 +186,12 @@ export default {
 				'glow': 'glow 4s infinite ease-in-out',
 				'pulse-slow': 'pulse-slow 4s infinite ease-in-out',
 				'fade-in': 'fade-in 0.8s ease-out forwards',
-				'shimmer': 'shimmer 2s infinite linear'
+				'shimmer': 'shimmer 2s infinite linear',
+				'reveal-up': 'reveal-up 0.8s ease-out forwards',
+				'reveal-right': 'reveal-right 0.8s ease-out forwards',
+				'reveal-left': 'reveal-left 0.8s ease-out forwards',
+				'soft-bounce': 'soft-bounce 6s infinite ease-in-out',
+				'soft-rotate': 'soft-rotate 8s infinite ease-in-out'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
