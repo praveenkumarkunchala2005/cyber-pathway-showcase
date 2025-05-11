@@ -4,14 +4,17 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Mail, Phone, Github, Linkedin } from 'lucide-react';
 import { DotPattern } from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/context/ThemeContext';
 
 const Hero = () => {
+  const { theme } = useTheme();
+  
   return (
     <section id="home" className="relative min-h-[80vh] flex items-center py-16 px-4 md:px-8 overflow-hidden">
       {/* Background elements - cyber-themed grid and dots */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#22d3ee_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/30 to-indigo-600/20 rounded-full blur-[120px]"></div>
+        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#8B5CF6_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/30 to-indigo-600/30 rounded-full blur-[120px]"></div>
         
         {/* Dot pattern with glow effect */}
         <DotPattern 
@@ -73,20 +76,20 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-slide-up-delay-3">
-            <a href="mailto:praveenkumarkunchala1122@gmail.com" className="contact-item hover:scale-105 transition-transform hover:text-violet-400">
-              <Mail className="h-5 w-5" />
+            <a href="mailto:praveenkumarkunchala1122@gmail.com" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
+              <Mail className="h-5 w-5 group-hover:text-violet-400" />
               <span>praveenkumarkunchala1122@gmail.com</span>
             </a>
-            <a href="tel:+919347368517" className="contact-item hover:scale-105 transition-transform hover:text-violet-400">
-              <Phone className="h-5 w-5" />
+            <a href="tel:+919347368517" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
+              <Phone className="h-5 w-5 group-hover:text-violet-400" />
               <span>+91 9347368517</span>
             </a>
-            <a href="#" className="contact-item hover:scale-105 transition-transform hover:text-violet-400">
-              <Linkedin className="h-5 w-5" />
+            <a href="#" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
+              <Linkedin className="h-5 w-5 group-hover:text-violet-400" />
               <span>LinkedIn</span>
             </a>
-            <a href="#" className="contact-item hover:scale-105 transition-transform hover:text-violet-400">
-              <Github className="h-5 w-5" />
+            <a href="#" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
+              <Github className="h-5 w-5 group-hover:text-violet-400" />
               <span>GitHub</span>
             </a>
           </div>

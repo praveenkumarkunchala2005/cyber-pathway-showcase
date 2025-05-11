@@ -1,14 +1,27 @@
 
 import React from 'react';
 import EducationCard from './EducationCard';
+import { useTheme } from '@/context/ThemeContext';
+import { DotPattern } from '@/components/ui/dot-pattern';
 
 const Education = () => {
+  const { theme } = useTheme();
+  
   return (
     <section id="education" className="py-16 px-4 md:px-8 relative">
       {/* Background elements */}
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="absolute right-0 bottom-0 w-60 h-60 bg-cyber-accent/5 rounded-full blur-[80px]"></div>
         <div className="absolute left-0 top-0 w-40 h-40 bg-cyber-glow/5 rounded-full blur-[50px]"></div>
+        
+        {/* Dot pattern for extra visual interest */}
+        <DotPattern 
+          glow={false}
+          width={32}
+          height={32}
+          cr={0.3}
+          className="opacity-5"
+        />
       </div>
       
       <div className="container mx-auto relative z-10">
@@ -16,7 +29,7 @@ const Education = () => {
           <h2 className="section-title mb-4">
             Academic Background
           </h2>
-          <p className="text-gray-400 max-w-2xl">
+          <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} max-w-2xl`}>
             My educational journey in the field of computer science and cybersecurity has equipped me with a strong foundation in both theoretical knowledge and practical skills.
           </p>
         </div>

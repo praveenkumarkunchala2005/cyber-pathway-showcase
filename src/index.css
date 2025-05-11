@@ -51,34 +51,34 @@
     --cyber-dark: #1A1F2C;
     --cyber-default: #221F26;
     --cyber-light: #2D3748;
-    --cyber-accent: #7E69AB;
-    --cyber-glow: #9b87f5;
+    --cyber-accent: #9B87F5;
+    --cyber-glow: #8B5CF6;
     --cyber-light-40: rgba(45, 55, 72, 0.4);
     --cyber-light-70: rgba(45, 55, 72, 0.7);
     --cyber-light-80: rgba(45, 55, 72, 0.8);
-    --cyber-glow-5: rgba(155, 135, 245, 0.05);
-    --cyber-glow-10: rgba(155, 135, 245, 0.1);
-    --cyber-glow-20: rgba(155, 135, 245, 0.2);
-    --cyber-glow-50: rgba(155, 135, 245, 0.5);
-    --cyber-accent-20: rgba(126, 105, 171, 0.2);
-    --cyber-accent-40: rgba(126, 105, 171, 0.4);
+    --cyber-glow-5: rgba(139, 92, 246, 0.05);
+    --cyber-glow-10: rgba(139, 92, 246, 0.1);
+    --cyber-glow-20: rgba(139, 92, 246, 0.2);
+    --cyber-glow-50: rgba(139, 92, 246, 0.5);
+    --cyber-accent-20: rgba(155, 135, 245, 0.2);
+    --cyber-accent-40: rgba(155, 135, 245, 0.4);
   }
 
   .light-mode {
-    --cyber-dark: #f8fafc;
-    --cyber-default: #f1f5f9;
-    --cyber-light: #e2e8f0;
-    --cyber-accent: #7E69AB;
-    --cyber-glow: #6E59A5;
-    --cyber-light-40: rgba(226, 232, 240, 0.4);
-    --cyber-light-70: rgba(226, 232, 240, 0.7);
-    --cyber-light-80: rgba(226, 232, 240, 0.8);
-    --cyber-glow-5: rgba(110, 89, 165, 0.05);
-    --cyber-glow-10: rgba(110, 89, 165, 0.1);
-    --cyber-glow-20: rgba(110, 89, 165, 0.2);
-    --cyber-glow-50: rgba(110, 89, 165, 0.5);
-    --cyber-accent-20: rgba(126, 105, 171, 0.2);
-    --cyber-accent-40: rgba(126, 105, 171, 0.4);
+    --cyber-dark: #F8FAFC;
+    --cyber-default: #EEF2FF;
+    --cyber-light: #E0E7FF;
+    --cyber-accent: #8B5CF6;
+    --cyber-glow: #6D28D9;
+    --cyber-light-40: rgba(224, 231, 255, 0.4);
+    --cyber-light-70: rgba(224, 231, 255, 0.7);
+    --cyber-light-80: rgba(224, 231, 255, 0.8);
+    --cyber-glow-5: rgba(109, 40, 217, 0.05);
+    --cyber-glow-10: rgba(109, 40, 217, 0.1);
+    --cyber-glow-20: rgba(109, 40, 217, 0.2);
+    --cyber-glow-50: rgba(109, 40, 217, 0.5);
+    --cyber-accent-20: rgba(139, 92, 246, 0.2);
+    --cyber-accent-40: rgba(139, 92, 246, 0.4);
   }
 
   * {
@@ -114,9 +114,9 @@
 
 @layer components {
   .cyber-card {
-    @apply bg-cyber border border-[var(--cyber-light-40)] rounded-lg overflow-hidden relative transition-colors duration-300 flex flex-col h-full;
+    @apply bg-cyber border border-[var(--cyber-light-40)] rounded-lg overflow-hidden relative transition-colors duration-300 flex flex-col h-full shadow-lg;
     background-image: linear-gradient(to bottom right, var(--cyber-default), var(--cyber-dark));
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
   
   .cyber-card::after {
@@ -127,18 +127,19 @@
 
   .light-mode .cyber-card {
     @apply border-[var(--cyber-light-70)] shadow-md;
-    background-image: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+    background-image: linear-gradient(to bottom right, #f8fafc, #e0e7ff);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.08);
   }
 
   .achievement-card {
     @apply flex items-start space-x-3 p-4 rounded-md transition-all duration-300 relative;
     background: linear-gradient(to bottom right, var(--cyber-default), var(--cyber-dark));
     border: 1px solid var(--cyber-light-40);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
 
   .light-mode .achievement-card {
-    background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+    background: linear-gradient(to bottom right, #f8fafc, #eef2ff);
     border: 1px solid var(--cyber-light-70);
   }
 
@@ -155,6 +156,12 @@
     @apply px-4 py-2 bg-cyber-accent rounded-md border transition-all duration-300 hover:bg-cyber-glow shadow-md;
     color: white;
     border-color: transparent;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+  }
+
+  .cyber-button:hover {
+    box-shadow: 0 6px 15px rgba(139, 92, 246, 0.35);
+    transform: translateY(-2px);
   }
 
   .light-mode .cyber-button {
@@ -170,6 +177,7 @@
   
   .cyber-button-outline:hover {
     background-color: var(--cyber-glow-10);
+    transform: translateY(-2px);
   }
   
   .section-title {
@@ -272,7 +280,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(transparent, rgba(91, 141, 239, 0.3), transparent 30%);
+    background: conic-gradient(transparent, rgba(139, 92, 246, 0.3), transparent 30%);
     animation: rotateBorder 4s linear infinite;
   }
 
@@ -284,6 +292,30 @@
   .hover-transform:hover {
     transform: perspective(800px) rotateY(5deg) scale(1.03);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .light-mode .hover-transform:hover {
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.15);
+  }
+  
+  .nav-link {
+    @apply relative overflow-hidden hover:text-cyber-glow transition-colors;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 bottom-0 w-full h-0.5 bg-cyber-glow transform scale-x-0 transition-transform duration-300 ease-in-out origin-bottom-right;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-lg bg-cyber-default/70 border border-cyber-light/20;
+  }
+  
+  .light-mode .glass-effect {
+    @apply backdrop-blur-lg bg-white/70 border border-cyber-light/30;
   }
 
   @keyframes fadeIn {
@@ -343,10 +375,10 @@
 
   @keyframes pulseGlow {
     0%, 100% {
-      box-shadow: 0 0 5px rgba(91, 141, 239, 0.3);
+      box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
     }
     50% {
-      box-shadow: 0 0 15px rgba(91, 141, 239, 0.7);
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
     }
   }
 
