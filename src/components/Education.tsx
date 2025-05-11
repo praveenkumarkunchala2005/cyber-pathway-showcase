@@ -20,7 +20,7 @@ const Education = () => {
           width={32}
           height={32}
           cr={0.3}
-          className="opacity-5"
+          className={`opacity-5 ${theme === 'light' ? 'text-purple-800' : ''}`}
         />
       </div>
       

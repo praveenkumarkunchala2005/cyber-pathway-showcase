@@ -20,7 +20,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`py-4 px-4 md:px-8 sticky top-0 z-50 transition-all duration-300 ${
+    <header className={`py-4 px-4 md:px-8 sticky top-0 z-50 transition-all duration-500 ${
       scrolled ? 'glass-effect shadow-md' : 'bg-transparent'
     }`}>
       <div className="container mx-auto">
@@ -31,12 +31,12 @@ const Navbar = () => {
           </div>
           
           <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex md:items-center absolute md:relative top-16 md:top-0 left-0 right-0 ${
-            scrolled ? 'glass-effect' : 'bg-cyber md:bg-transparent'
+            scrolled ? 'glass-effect' : 'bg-cyber-dark md:bg-transparent'
           } flex-col md:flex-row items-start md:space-x-8 p-4 md:p-0 space-y-4 md:space-y-0 shadow-md md:shadow-none z-50`}>
-            <a href="#home" className="nav-link">Home</a>
-            <a href="#education" className="nav-link">Education</a>
-            <a href="#projects" className="nav-link">Projects</a>
-            <a href="#skills" className="nav-link">Skills</a>
+            <a href="#home" className={`nav-link ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>Home</a>
+            <a href="#education" className={`nav-link ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>Education</a>
+            <a href="#projects" className={`nav-link ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>Projects</a>
+            <a href="#skills" className={`nav-link ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>Skills</a>
           </nav>
           
           <div className="flex items-center space-x-2">
@@ -44,7 +44,7 @@ const Navbar = () => {
               onClick={toggleTheme}
               variant="outline" 
               size="icon" 
-              className={`bg-transparent border-cyber-light/30 hover:text-cyber-glow hover:border-cyber-glow/50 ${
+              className={`bg-transparent border border-cyber-light/30 hover:text-cyber-glow hover:border-cyber-glow/50 ${
                 theme === 'dark' ? 'text-yellow-200' : 'text-purple-600'
               } hover:bg-cyber-glow/5 transition-all duration-300 hover:scale-105`}
             >
@@ -59,7 +59,7 @@ const Navbar = () => {
             </Button>
             
             <Button 
-              className="cyber-button md:hidden"
+              className={`${theme === 'dark' ? 'cyber-button' : 'bg-cyber-accent text-white hover:bg-cyber-glow'} md:hidden`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
