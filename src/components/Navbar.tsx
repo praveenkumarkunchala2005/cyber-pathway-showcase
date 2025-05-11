@@ -42,7 +42,7 @@ const Navbar = () => {
           </div>
           
           <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex md:items-center absolute md:relative top-16 md:top-0 left-0 right-0 ${
-            scrolled ? 'glass-effect' : theme === 'dark' ? 'bg-cyber-dark/95 md:bg-transparent' : 'bg-white/90 md:bg-transparent'
+            scrolled ? 'bg-transparent' : theme === 'dark' ? 'bg-cyber-dark/95 md:bg-transparent' : 'bg-white/90 md:bg-transparent'
           } flex-col md:flex-row items-start md:items-center md:space-x-8 p-6 md:p-0 space-y-4 md:space-y-0 shadow-md md:shadow-none z-50 rounded-b-lg md:rounded-none`}>
             {navLinks.map((link) => (
               <a 

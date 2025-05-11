@@ -100,15 +100,14 @@ const Projects = () => {
       </div>
       
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-scale">
+        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
           <h2 className="section-title mb-4">
             Projects
           </h2>
-          <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} max-w-2xl`}>
+          <p className="text-gray-400 max-w-2xl">
             Showcasing my journey in web development through various projects that demonstrate my skills and technical capabilities.
           </p>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="reveal-fade-up project-card">
             <ProjectCard 
@@ -116,18 +115,18 @@ const Projects = () => {
               technologies="React.js, Clerk, TailwindCSS, Gemini API"
               description="Developed a smart travel planning web app that generates personalized itineraries and recommends budget-friendly hotels using the Gemini API. Implemented user authentication with Clerk and integrated Firestore for data storage."
               date="Feb 2025"
-              githubLink="#"
-              liveLink="#"
+              githubLink="https://github.com/praveenkumarkunchala2005/jetsetgo"
+              liveLink="https://trip-planner-kohl.vercel.app"
             />
           </div>
           
           <div className="reveal-fade-up project-card">
             <ProjectCard 
-              title="Web Scraper"
+              title="QuickGrades"
               technologies="Node.js, Express.js"
               description="Created a website scraper to extract semester results of students from the college website efficiently. Enabled seamless retrieval and access to students' results for administrative use within the college."
               date="Jul 2024"
-              githubLink="#"
+              githubLink="https://github.com/praveenkumarkunchala2005/QuickGrades"
             />
           </div>
           
@@ -137,8 +136,8 @@ const Projects = () => {
               technologies="React, TypeScript, TailwindCSS"
               description="Developed a dynamic and user-friendly Game Mechanics using React and TypeScript. Ensured a responsive and visually appealing user interface using TailwindCSS."
               date="Jan 2025"
-              githubLink="#"
-              liveLink="#"
+              githubLink="https://github.com/praveenkumarkunchala2005/TheHangManGame"
+              liveLink="https://the-hang-man-game-xi.vercel.app"
             />
           </div>
         </div>

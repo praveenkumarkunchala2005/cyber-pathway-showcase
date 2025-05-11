@@ -103,7 +103,7 @@ const Hero = () => {
           
           <p className={`text-lg md:text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-6 max-w-2xl animate-slide-up-delay-2`}>
             Passionate full-stack web developer specializing in creating responsive, performant web applications
-            with modern technologies like React, Next.js, and Node.js.
+            with modern technologies like React.js and Node.js.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-slide-up-delay-3">
@@ -115,24 +115,28 @@ const Hero = () => {
               <Phone className="h-5 w-5 group-hover:text-violet-400" />
               <span>+91 9347368517</span>
             </a>
-            <a href="#" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
+            <a href="https://www.linkedin.com/in/praveen-kumar-kunchala/" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
               <Linkedin className="h-5 w-5 group-hover:text-violet-400" />
               <span>LinkedIn</span>
             </a>
-            <a href="#" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
+            <a href="https://github.com/praveenkumarkunchala2005" className="contact-item hover:scale-105 transition-transform hover:text-violet-400 group">
               <Github className="h-5 w-5 group-hover:text-violet-400" />
               <span>GitHub</span>
             </a>
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 animate-slide-up-delay-4">
+            <a href="https://drive.google.com/file/d/14fYdX-iONFx5aZVe-lAg-eYeb6Y47f76/view?usp=sharing">
             <Button className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 group flex items-center w-full sm:w-auto hover-scale animate-pulse-glow border-0">
               View Resume
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button className="bg-transparent border border-violet-500/50 text-violet-300 hover:bg-violet-500/10 w-full sm:w-auto hover-scale animate-border-pulse">
+            </a>
+            <a href="mailto:praveenkumarkunchala1122@gmail.com">
+            <Button className="bg-transparent border border-violet-500/50 text-violet-600 hover:bg-violet-500/10 w-full sm:w-auto hover-scale animate-border-pulse">
               Contact Me
             </Button>
+            </a>
           </div>
         </div>
       </div>

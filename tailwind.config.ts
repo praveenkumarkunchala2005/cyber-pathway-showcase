@@ -1,6 +1,6 @@
 
 import type { Config } from "tailwindcss";
-
+import animate from "tailwindcss-animate";
 export default {
 	darkMode: ["class"],
 	content: [
@@ -106,8 +106,8 @@ export default {
 					}
 				},
 				'pulse-slow': {
-					'0%, 100%': { opacity: 1 },
-					'50%': { opacity: 0.8 }
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				},
 				'fade-in': {
 					'0%': {
@@ -199,5 +199,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 } satisfies Config;

@@ -63,6 +63,14 @@ const EducationCard: React.FC<EducationCardProps> = ({
           </span>
         </div>
       )}
+      {!isActive && (
+        <div className="bottom-0 mt-3 border-t border-cyber-light/30 pt-3">
+          <span className="inline-flex items-center text-sm font-medium text-cyber-glow bg-cyber-glow/10 px-2 py-1 rounded">
+            <span className="w-2 h-2 bg-cyber-glow rounded-full mr-2 animate-pulse"></span>
+            Completed
+          </span>
+        </div>
+      )}
     </div>
   );
 };

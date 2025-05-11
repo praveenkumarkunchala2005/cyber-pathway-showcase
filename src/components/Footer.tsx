@@ -22,7 +22,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-2">
               <Code className="h-5 w-5 text-cyber-glow" />
               <span className={`font-space text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-                Praveen Kumar<span className="text-cyber-accent">.</span>
+                Praveen Kumar Kunchala<span className="text-cyber-accent"></span>
               </span>
             </div>
             <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} max-w-sm text-center md:text-left`}>
@@ -30,14 +30,14 @@ const Footer = () => {
             </p>
             <div className="flex items-center space-x-4 pt-2">
               <a 
-                href="#" 
+                href="https://github.com/praveenkumarkunchala2005" 
                 className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} hover:text-cyber-glow transition-colors`}
                 aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/praveen-kumar-kunchala/" 
                 className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} hover:text-cyber-glow transition-colors`}
                 aria-label="LinkedIn"
               >

@@ -45,23 +45,23 @@ const Education = () => {
       </div>
       
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-scale">
+        <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
           <h2 className="section-title mb-4">
             Academic Background
           </h2>
-          <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} max-w-2xl`}>
+          <p className="text-gray-400 max-w-2xl">
             My educational journey in the field of computer science and cybersecurity has equipped me with a strong foundation in both theoretical knowledge and practical skills.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
           <div className="reveal-fade-right delay-100">
             <EducationCard 
               institution="CMR College of Engineering & Technology"
               degree="B.Tech in Computer Science Engineering (Cyber Security)"
               location="Medchal, Telangana"
               duration="Nov. 2022 - May 2026 (Expected)"
-              grade="GPA: 8.02"
+              grade="GPA: 7.96"
               isActive={true}
             />
           </div>

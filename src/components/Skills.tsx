@@ -51,16 +51,15 @@ const Skills = () => {
         <div className="skills-grid mb-16">
           <div className="reveal-fade-up delay-100">
             <SkillCategory 
-              title="Languages" 
-              skills="JavaScript, TypeScript, HTML, CSS, Python, Java"
+              title="Programming Languages" 
+              skills="C, C++, Python, Java"
               icon={<Languages />}
             />
           </div>
-          
           <div className="reveal-fade-up delay-200">
             <SkillCategory 
               title="Frontend Technologies" 
-              skills="React, Next.js, TailwindCSS, Redux, Material UI, Bootstrap"
+              skills="React, TailwindCSS, Material UI, Bootstrap, HTML, CSS"
               icon={<Code />}
             />
           </div>
@@ -68,7 +67,7 @@ const Skills = () => {
           <div className="reveal-fade-up delay-300">
             <SkillCategory 
               title="Backend Technologies" 
-              skills="Node.js, Express, RESTful APIs, GraphQL"
+              skills="Node.js, Express.js, JavaScript, TypeScript"
               icon={<Server />}
             />
           </div>
@@ -76,7 +75,7 @@ const Skills = () => {
           <div className="reveal-fade-up delay-100">
             <SkillCategory 
               title="Databases" 
-              skills="MongoDB, MySQL, PostgreSQL, Firebase"
+              skills="MongoDB, MySQL, Firebase"
               icon={<Database />}
             />
           </div>
@@ -84,18 +83,18 @@ const Skills = () => {
           <div className="reveal-fade-up delay-200">
             <SkillCategory 
               title="Developer Tools" 
-              skills="Git, GitHub, VS Code, Docker, Webpack, Vite"
+              skills="GitHub, VS Code, Postman, Sublime Text"
               icon={<Code />}
             />
           </div>
           
-          <div className="reveal-fade-up delay-300">
+          {/* <div className="reveal-fade-up delay-300">
             <SkillCategory 
               title="Additional Skills" 
               skills="Responsive Design, Web Accessibility, UI/UX Principles, Performance Optimization"
               icon={<GraduationCap />}
             />
-          </div>
+          </div> */}
         </div>
         
         <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
@@ -110,64 +109,76 @@ const Skills = () => {
         <div className="achievements-grid">
           <div className="reveal-fade-right delay-100">
             <Achievement
-              title="Built responsive web interfaces that improved user engagement by 45%"
-              date="Feb 2025"
+              title="Codeforces: Specialist (1419)"
+              date="April 2025"
             />
           </div>
           
           <div className="reveal-fade-left delay-100">
             <Achievement
-              title="Developed a React dashboard with 98% performance score on Lighthouse"
-              date="Dec 2024"
+              title="CodeChef: 3 Star (1743)"
+              date="April 2025"
             />
           </div>
           
           <div className="reveal-fade-right delay-200">
             <Achievement
-              title="Winner of Frontend Innovation Hackathon at DevConf 2024"
-              date="July 2024"
+              title="Leetcode: Knight (1998, top 1.4%)"
+              date="April 2025"
             />
           </div>
           
           <div className="reveal-fade-left delay-200">
             <Achievement
-              title="Created PWAs that reduced load times by 65% for mobile users"
-              date="April 2024"
+              title="Solved 2000+ DSA problems across multiple platforms"
+              date="May 2025"
             />
           </div>
           
           <div className="reveal-fade-right delay-300">
             <Achievement
-              title="Open source contributor with 500+ stars across React components"
-              date="Ongoing"
+              title="Winner, Code-A-thon @ MREC Sponsored by GeeksForGeeks – Rs. 10,000 cash prize (500+ participants) "
+              date="April 2025"
             />
           </div>
           
           <div className="reveal-fade-left delay-300">
             <Achievement
-              title="Led frontend development for a SaaS platform with 10k+ daily users"
-              date="October 2024"
+              title="2nd Runner-Up, Codeathon @ ACEEC (270+ participants) "
+              date="June 2024"
             />
           </div>
           
           <div className="reveal-fade-right delay-400">
             <Achievement
-              title="Optimized web vitals reducing bounce rates by 35% for e-commerce client"
-              date="September 2024"
+              title="2nd Runner-Up, Freshman Code Cup @ CMRCET"
+              date="April 2023"
             />
           </div>
           
           <div className="reveal-fade-left delay-400">
             <Achievement
-              title="Published technical articles on web performance with 50k+ views"
-              date="January 2025"
+              title="3rd Runner-Up, Code Clash at JNTUH, with Rs 7000 cash prize (550+ participants)"
+              date="April 2025"
             />
           </div>
           
           <div className="reveal-fade-up delay-500">
             <Achievement
-              title="Mentored junior developers in modern frontend technologies"
+              title="AIR 5, Mentorpick Leaderboard (12,000+ participants)"
               date="2023 - Present"
+            />
+          </div>
+          <div className="reveal-fade-up delay-500">
+            <Achievement
+              title="Global Rank 63, CodeChef Starters 169 Div2"
+              date="January 2025"
+            />
+          </div>
+          <div className="reveal-fade-up delay-500">
+            <Achievement
+              title="Ranked 239 in TCS CodeVita Season 12, a national-level coding competition"
+              date="January 2025"
             />
           </div>
         </div>
