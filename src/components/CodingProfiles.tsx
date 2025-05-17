@@ -75,9 +75,9 @@ const CodingProfiles = () => {
         { label: 'Contest Rating', value: `${leetcodeProfile.contestRating}` },
         { label: 'Ranking', value: leetcodeProfile.ranking }
       ] : [],
-      icon: <Code className="h-8 w-8 text-cyber-glow" />,
-      bgClass: 'from-[#ffa116]/10 to-transparent',
-      borderClass: 'border-[#ffa116]/20',
+      icon: <Code className="h-8 w-8" />,
+      bgClass: theme === 'dark' ? 'from-[#ffa116]/10 to-transparent' : 'from-[#ffa116]/5 to-transparent',
+      borderClass: theme === 'dark' ? 'border-[#ffa116]/20' : 'border-[#ffa116]/10',
       iconClass: 'text-[#ffa116]'
     },
     {
@@ -90,9 +90,9 @@ const CodingProfiles = () => {
         { label: 'Max Rating', value: `${codeforcesProfile.maxRating}` },
         { label: 'Ranking', value: codeforcesProfile.ranking }
       ] : [],
-      icon: <Trophy className="h-8 w-8 text-cyber-glow" />,
-      bgClass: 'from-[#1992e3]/10 to-transparent',
-      borderClass: 'border-[#1992e3]/20',
+      icon: <Trophy className="h-8 w-8" />,
+      bgClass: theme === 'dark' ? 'from-[#1992e3]/10 to-transparent' : 'from-[#1992e3]/5 to-transparent',
+      borderClass: theme === 'dark' ? 'border-[#1992e3]/20' : 'border-[#1992e3]/10',
       iconClass: 'text-[#1992e3]'
     },
     {
@@ -105,9 +105,9 @@ const CodingProfiles = () => {
         { label: 'Max Rating', value: `${codechefProfile.maxRating}` },
         { label: 'Ranking', value: codechefProfile.ranking }
       ] : [],
-      icon: <Award className="h-8 w-8 text-cyber-glow" />,
-      bgClass: 'from-[#7b5e47]/10 to-transparent',
-      borderClass: 'border-[#7b5e47]/20',
+      icon: <Award className="h-8 w-8" />,
+      bgClass: theme === 'dark' ? 'from-[#7b5e47]/10 to-transparent' : 'from-[#7b5e47]/5 to-transparent',
+      borderClass: theme === 'dark' ? 'border-[#7b5e47]/20' : 'border-[#7b5e47]/10',
       iconClass: 'text-[#7b5e47]'
     }
   ];
@@ -121,11 +121,11 @@ const CodingProfiles = () => {
         rel="noopener noreferrer"
         className="block h-full transition-transform duration-300 hover:scale-[1.02]"
       >
-        <Card className={`cyber-card h-full bg-gradient-to-br ${platform.bgClass} ${platform.borderClass} hover:shadow-lg relative overflow-hidden group`}>
+        <Card className={`cyber-card h-full bg-gradient-to-br ${platform.bgClass} ${platform.borderClass} hover:shadow-lg relative overflow-hidden group ${theme === 'dark' ? 'bg-cyber-dark text-white' : 'bg-white text-gray-800'}`}>
           <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-gradient-to-br from-cyber-glow/5 to-transparent blur-2xl group-hover:opacity-70 transition-opacity"></div>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <div className="flex items-center space-x-3">
-              <div className={`p-2 rounded-full bg-cyber-light/30 backdrop-blur-sm ${platform.iconClass}`}>
+              <div className={`p-2 rounded-full ${theme === 'dark' ? 'bg-cyber-light/30' : 'bg-gray-100'} backdrop-blur-sm ${platform.iconClass}`}>
                 {platform.icon}
               </div>
               <CardTitle className={`text-xl ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
@@ -134,11 +134,11 @@ const CodingProfiles = () => {
             </div>
             <HoverCard>
               <HoverCardTrigger>
-                <Badge className="bg-cyber-glow/10 hover:bg-cyber-glow/20 text-cyber-glow px-3 py-1">
+                <Badge className={`${theme === 'dark' ? 'bg-cyber-glow/10 hover:bg-cyber-glow/20 text-cyber-glow' : 'bg-cyber-accent/10 hover:bg-cyber-accent/20 text-cyber-accent'} px-3 py-1`}>
                   @{platform.username.length > 15 ? platform.username.substring(0, 12) + '...' : platform.username}
                 </Badge>
               </HoverCardTrigger>
-              <HoverCardContent className="w-auto glass-effect">
+              <HoverCardContent className={`w-auto ${theme === 'dark' ? 'glass-effect' : 'bg-white/90 backdrop-blur-sm border border-gray-200'}`}>
                 <div className="flex flex-col space-y-1">
                   <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
                     @{platform.username}
@@ -155,13 +155,13 @@ const CodingProfiles = () => {
               <div className="mt-4 space-y-4">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="flex justify-between items-center">
-                    <Skeleton className="h-4 w-24" />
-                    <Skeleton className="h-4 w-16" />
+                    <Skeleton className={`h-4 w-24 ${theme === 'dark' ? 'bg-cyber-light/30' : 'bg-gray-200/50'}`} />
+                    <Skeleton className={`h-4 w-16 ${theme === 'dark' ? 'bg-cyber-light/30' : 'bg-gray-200/50'}`} />
                   </div>
                 ))}
                 
                 <div className="mt-6 flex justify-center">
-                  <Skeleton className="h-6 w-28 rounded-full" />
+                  <Skeleton className={`h-6 w-28 rounded-full ${theme === 'dark' ? 'bg-cyber-light/30' : 'bg-gray-200/50'}`} />
                 </div>
               </div>
             ) : platform.status === 'error' ? (
@@ -170,7 +170,7 @@ const CodingProfiles = () => {
                   Could not load profile data
                 </p>
                 <button 
-                  className="mt-2 text-sm text-cyber-accent hover:text-cyber-glow transition-colors duration-300"
+                  className={`mt-2 text-sm ${theme === 'dark' ? 'text-cyber-accent hover:text-cyber-glow' : 'text-cyber-glow hover:text-cyber-accent'} transition-colors duration-300`}
                   onClick={(e) => {
                     e.preventDefault();
                     window.location.reload();
@@ -195,7 +195,7 @@ const CodingProfiles = () => {
                 </div>
                 
                 <div className="mt-6 text-center">
-                  <span className="inline-flex items-center text-sm font-medium text-cyber-glow hover:text-cyber-accent transition-colors">
+                  <span className={`inline-flex items-center text-sm font-medium ${theme === 'dark' ? 'text-cyber-glow hover:text-cyber-accent' : 'text-cyber-accent hover:text-cyber-glow'} transition-colors`}>
                     View Profile 
                     <ExternalLink className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -221,7 +221,7 @@ const CodingProfiles = () => {
           <h2 className="section-title mb-4">
             Competitive Coding Profiles
           </h2>
-          <p className="text-gray-400 max-w-2xl">
+          <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} max-w-2xl`}>
             My performance and achievements across various competitive programming platforms.
           </p>
         </div>
