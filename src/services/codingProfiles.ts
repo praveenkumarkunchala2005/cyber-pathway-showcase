@@ -50,43 +50,58 @@ export const fetchLeetCodeProfile = async (username: string): Promise<LeetCodePr
 };
 
 // CodeForces API
-export const fetchCodeForcesProfile = async (username: string): Promise<CodeForcesProfile> => {
+const getManualRank = (maxRating: number): string => {
+  if (maxRating >= 2900) return "Legendary Grandmaster";
+  if (maxRating >= 2600) return "International Grandmaster";
+  if (maxRating >= 2400) return "Grandmaster";
+  if (maxRating >= 2300) return "International Master";
+  if (maxRating >= 2100) return "Master";
+  if (maxRating >= 1900) return "Candidate Master";
+  if (maxRating >= 1600) return "Expert";
+  if (maxRating >= 1400) return "Specialist";
+  if (maxRating >= 1200) return "Pupil";
+  return "Newbie";
+};
+
+export const fetchCodeForcesProfile = async (
+  username: string
+): Promise<CodeForcesProfile> => {
   try {
-    // CodeForces API is more accessible, but still might have CORS issues
-    // Let's first try the direct API, and if it fails, use mock data
-    console.log('Attempting to fetch CodeForces profile for', username);
-    
-    // Try to get user info from CodeForces API
-    const response = await axios.get(`https://codeforces.com/api/user.info?handles=${username}`);
-    const userData = response.data.result[0];
-    
-    // Also get submission data to calculate problems solved
-    const submissionsResponse = await axios.get(`https://codeforces.com/api/user.status?handle=${username}`);
+    console.log("Fetching Codeforces profile for", username);
+
+    const [userResponse, submissionsResponse] = await Promise.all([
+      axios.get(`https://codeforces.com/api/user.info?handles=${username}`),
+      axios.get(`https://codeforces.com/api/user.status?handle=${username}`),
+    ]);
+
+    const userData = userResponse.data.result[0];
     const submissions = submissionsResponse.data.result;
-    
-    // Count unique solved problems
-    const uniqueProblems = new Set();
-    submissions.forEach((submission: any) => {
-      if (submission.verdict === "OK") {
-        const problemId = `${submission.problem.contestId}-${submission.problem.index}`;
-        uniqueProblems.add(problemId);
+
+    // Use a Set to track unique problems that were solved (verdict OK)
+    const uniqueSolvedProblems = new Set<string>();
+    for (const submission of submissions) {
+      if (submission.verdict === "OK" && submission.problem) {
+        const problemKey = `${submission.problem.contestId}-${submission.problem.index}`;
+        uniqueSolvedProblems.add(problemKey);
       }
-    });
-    
+    }
+
+    const maxRating = userData.maxRating ?? 0;
+    const manualRank = getManualRank(maxRating);
+
     return {
       username: userData.handle,
-      problemsSolved: uniqueProblems.size,
-      maxRating: userData.maxRating || 0,
-      ranking: userData.rank || 'Specialist' // Default to Specialist if rank not available
+      problemsSolved: uniqueSolvedProblems.size,
+      maxRating,
+      ranking: manualRank,
     };
   } catch (error) {
-    console.error('Failed to fetch CodeForces profile:', error);
-    // Return corrected fallback data
+    console.error("Error fetching Codeforces data:", error);
     return {
       username: "PraveenKumar2201",
-      problemsSolved: 250, // Corrected problems solved count
+      problemsSolved: 315,
       maxRating: 1419,
-      ranking: "Specialist" // Just the rank title without additional info
+      ranking: "Specialist",
     };
   }
 };
@@ -101,8 +116,8 @@ export const fetchCodeChefProfile = async (username: string): Promise<CodeChefPr
     // For now, return mock data that's representative of the user's profile
     return {
       username: "praveen_220105",
-      problemsSolved: 320,
-      maxRating: 1743,
+      problemsSolved: 230,
+      maxRating: 1751,
       ranking: "3 Star" // Simple ranking display
     };
   } catch (error) {
@@ -110,8 +125,8 @@ export const fetchCodeChefProfile = async (username: string): Promise<CodeChefPr
     // Return fallback data
     return {
       username: "praveen_220105",
-      problemsSolved: 320,
-      maxRating: 1743,
+      problemsSolved: 230,
+      maxRating: 1751,
       ranking: "3 Star"
     };
   }
