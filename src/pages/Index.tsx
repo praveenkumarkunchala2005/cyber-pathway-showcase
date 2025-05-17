@@ -84,8 +84,8 @@ const Index = () => {
           <Hero />
           <Education />
           <Projects />
-          <Skills />
           <CodingProfiles />
+          <Skills />
         </main>
         <Footer />
       </div>
