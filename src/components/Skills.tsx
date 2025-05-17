@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Code, Server, Database, Languages, Award, GraduationCap } from 'lucide-react';
+import CodingProfiles from '@/components/CodingProfiles';
 
 const SkillCategory = ({ title, skills, icon, className }: { title: string; skills: string; icon: React.ReactNode; className?: string }) => {
   return (
@@ -96,7 +97,7 @@ const Skills = () => {
             />
           </div> */}
         </div>
-        
+        <CodingProfiles />
         <div className="flex flex-col items-center justify-center text-center mb-12 reveal-fade-up">
           <h2 className="section-title mb-4">
             Achievements
@@ -107,7 +108,7 @@ const Skills = () => {
         </div>
         
         <div className="achievements-grid">
-          <div className="reveal-fade-right delay-100">
+          {/* <div className="reveal-fade-right delay-100">
             <Achievement
               title="Codeforces: Specialist (1419)"
               date="April 2025"
@@ -126,7 +127,7 @@ const Skills = () => {
               title="Leetcode: Knight (1998, top 1.4%)"
               date="April 2025"
             />
-          </div>
+          </div> */}
           
           <div className="reveal-fade-left delay-200">
             <Achievement
