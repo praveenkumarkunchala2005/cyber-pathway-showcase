@@ -77,12 +77,18 @@ export const fetchCodeForcesProfile = async (
     const userData = userResponse.data.result[0];
     const submissions = submissionsResponse.data.result;
 
-    // Use a Set to track unique problems that were solved (verdict OK)
+    // Correctly track unique problems (ignore gym and malformed submissions)
     const uniqueSolvedProblems = new Set<string>();
+
     for (const submission of submissions) {
-      if (submission.verdict === "OK" && submission.problem) {
-        const problemKey = `${submission.problem.contestId}-${submission.problem.index}`;
-        uniqueSolvedProblems.add(problemKey);
+      if (
+        submission.verdict === "OK" &&
+        submission.problem &&
+        submission.problem.contestId !== undefined &&
+        submission.problem.index
+      ) {
+        const key = `${submission.problem.contestId}-${submission.problem.index}`;
+        uniqueSolvedProblems.add(key);
       }
     }
 
@@ -96,7 +102,7 @@ export const fetchCodeForcesProfile = async (
       ranking: manualRank,
     };
   } catch (error) {
-    console.error("Error fetching Codeforces data:", error);
+    console.error("Failed to fetch CodeForces profile:", error);
     return {
       username: "PraveenKumar2201",
       problemsSolved: 315,
@@ -105,7 +111,6 @@ export const fetchCodeForcesProfile = async (
     };
   }
 };
-
 // CodeChef API
 export const fetchCodeChefProfile = async (username: string): Promise<CodeChefProfile> => {
   try {
