@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Education from '@/components/Education';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
+import CodingProfiles from '@/components/CodingProfiles';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/context/ThemeContext';
 
@@ -84,6 +85,7 @@ const Index = () => {
           <Education />
           <Projects />
           <Skills />
+          <CodingProfiles />
         </main>
         <Footer />
       </div>
