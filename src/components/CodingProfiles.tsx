@@ -1,22 +1,80 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Trophy, Code, Award } from 'lucide-react';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { Badge } from '@/components/ui/badge';
+import { Trophy, Code, Award, ExternalLink } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useTheme } from '@/context/ThemeContext';
+import { 
+  fetchLeetCodeProfile, 
+  fetchCodeForcesProfile, 
+  fetchCodeChefProfile,
+  LeetCodeProfile,
+  CodeForcesProfile,
+  CodeChefProfile
+} from '@/services/codingProfiles';
+
+type ProfileStatus = 'loading' | 'success' | 'error';
 
 const CodingProfiles = () => {
   const { theme } = useTheme();
-  
+  const [leetcodeProfile, setLeetcodeProfile] = useState<LeetCodeProfile | null>(null);
+  const [codeforcesProfile, setCodeforcesProfile] = useState<CodeForcesProfile | null>(null);
+  const [codechefProfile, setCodechefProfile] = useState<CodeChefProfile | null>(null);
+  const [profileStatus, setProfileStatus] = useState<Record<string, ProfileStatus>>({
+    leetcode: 'loading',
+    codeforces: 'loading',
+    codechef: 'loading'
+  });
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      try {
+        setProfileStatus(prev => ({ ...prev, leetcode: 'loading' }));
+        const leetcode = await fetchLeetCodeProfile('PraveenKumarKunchala');
+        setLeetcodeProfile(leetcode);
+        setProfileStatus(prev => ({ ...prev, leetcode: 'success' }));
+      } catch (error) {
+        console.error('Failed to fetch LeetCode profile:', error);
+        setProfileStatus(prev => ({ ...prev, leetcode: 'error' }));
+      }
+
+      try {
+        setProfileStatus(prev => ({ ...prev, codeforces: 'loading' }));
+        const codeforces = await fetchCodeForcesProfile('PraveenKumar2201');
+        setCodeforcesProfile(codeforces);
+        setProfileStatus(prev => ({ ...prev, codeforces: 'success' }));
+      } catch (error) {
+        console.error('Failed to fetch CodeForces profile:', error);
+        setProfileStatus(prev => ({ ...prev, codeforces: 'error' }));
+      }
+
+      try {
+        setProfileStatus(prev => ({ ...prev, codechef: 'loading' }));
+        const codechef = await fetchCodeChefProfile('praveen_220105');
+        setCodechefProfile(codechef);
+        setProfileStatus(prev => ({ ...prev, codechef: 'success' }));
+      } catch (error) {
+        console.error('Failed to fetch CodeChef profile:', error);
+        setProfileStatus(prev => ({ ...prev, codechef: 'error' }));
+      }
+    };
+
+    fetchProfiles();
+  }, []);
+
   const platforms = [
     {
       name: 'LeetCode',
-      username: 'PraveenKumarKunchala',
+      username: leetcodeProfile?.username || 'PraveenKumarKunchala',
       url: 'https://leetcode.com/u/PraveenKumarKunchala/',
-      stats: [
-        { label: 'Problems Solved', value: '950+' },
-        { label: 'Contest Rating', value: '1998' },
-        { label: 'Ranking', value: 'Knight (Top 1.4%)' }
-      ],
+      status: profileStatus.leetcode,
+      stats: leetcodeProfile ? [
+        { label: 'Problems Solved', value: `${leetcodeProfile.problemsSolved}+` },
+        { label: 'Contest Rating', value: `${leetcodeProfile.contestRating}` },
+        { label: 'Ranking', value: leetcodeProfile.ranking }
+      ] : [],
       icon: <Code className="h-8 w-8 text-cyber-glow" />,
       bgClass: 'from-[#ffa116]/10 to-transparent',
       borderClass: 'border-[#ffa116]/20',
@@ -24,13 +82,14 @@ const CodingProfiles = () => {
     },
     {
       name: 'CodeForces',
-      username: 'PraveenKumar2201',
+      username: codeforcesProfile?.username || 'PraveenKumar2201',
       url: 'https://codeforces.com/profile/PraveenKumar2201',
-      stats: [
-        { label: 'Problems Solved', value: '850+' },
-        { label: 'Max Rating', value: '1419' },
-        { label: 'Ranking', value: 'Specialist' }
-      ],
+      status: profileStatus.codeforces,
+      stats: codeforcesProfile ? [
+        { label: 'Problems Solved', value: `${codeforcesProfile.problemsSolved}+` },
+        { label: 'Max Rating', value: `${codeforcesProfile.maxRating}` },
+        { label: 'Ranking', value: codeforcesProfile.ranking }
+      ] : [],
       icon: <Trophy className="h-8 w-8 text-cyber-glow" />,
       bgClass: 'from-[#1992e3]/10 to-transparent',
       borderClass: 'border-[#1992e3]/20',
@@ -38,19 +97,116 @@ const CodingProfiles = () => {
     },
     {
       name: 'CodeChef',
-      username: 'praveen_220105',
+      username: codechefProfile?.username || 'praveen_220105',
       url: 'https://www.codechef.com/users/praveen_220105',
-      stats: [
-        { label: 'Problems Solved', value: '650+' },
-        { label: 'Max Rating', value: '1743' },
-        { label: 'Ranking', value: '3 Star' }
-      ],
+      status: profileStatus.codechef,
+      stats: codechefProfile ? [
+        { label: 'Problems Solved', value: `${codechefProfile.problemsSolved}+` },
+        { label: 'Max Rating', value: `${codechefProfile.maxRating}` },
+        { label: 'Ranking', value: codechefProfile.ranking }
+      ] : [],
       icon: <Award className="h-8 w-8 text-cyber-glow" />,
       bgClass: 'from-[#7b5e47]/10 to-transparent',
       borderClass: 'border-[#7b5e47]/20',
       iconClass: 'text-[#7b5e47]'
     }
   ];
+
+  // Render platform card
+  const renderPlatformCard = (platform: any, index: number) => (
+    <div key={platform.name} className={`reveal-fade-up delay-${index * 100}`}>
+      <a 
+        href={platform.url} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block h-full transition-transform duration-300 hover:scale-[1.02]"
+      >
+        <Card className={`cyber-card h-full bg-gradient-to-br ${platform.bgClass} ${platform.borderClass} hover:shadow-lg relative overflow-hidden group`}>
+          <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-gradient-to-br from-cyber-glow/5 to-transparent blur-2xl group-hover:opacity-70 transition-opacity"></div>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <div className="flex items-center space-x-3">
+              <div className={`p-2 rounded-full bg-cyber-light/30 backdrop-blur-sm ${platform.iconClass}`}>
+                {platform.icon}
+              </div>
+              <CardTitle className={`text-xl ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+                {platform.name}
+              </CardTitle>
+            </div>
+            <HoverCard>
+              <HoverCardTrigger>
+                <Badge className="bg-cyber-glow/10 hover:bg-cyber-glow/20 text-cyber-glow px-3 py-1">
+                  @{platform.username.length > 15 ? platform.username.substring(0, 12) + '...' : platform.username}
+                </Badge>
+              </HoverCardTrigger>
+              <HoverCardContent className="w-auto glass-effect">
+                <div className="flex flex-col space-y-1">
+                  <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+                    @{platform.username}
+                  </p>
+                  <div className="text-xs text-gray-400">
+                    Click card to visit profile
+                  </div>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
+          </CardHeader>
+          <CardContent>
+            {platform.status === 'loading' ? (
+              <div className="mt-4 space-y-4">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex justify-between items-center">
+                    <Skeleton className="h-4 w-24" />
+                    <Skeleton className="h-4 w-16" />
+                  </div>
+                ))}
+                
+                <div className="mt-6 flex justify-center">
+                  <Skeleton className="h-6 w-28 rounded-full" />
+                </div>
+              </div>
+            ) : platform.status === 'error' ? (
+              <div className="mt-4 text-center py-4">
+                <p className="text-sm text-muted-foreground">
+                  Could not load profile data
+                </p>
+                <button 
+                  className="mt-2 text-sm text-cyber-accent hover:text-cyber-glow transition-colors duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.reload();
+                  }}
+                >
+                  Try again
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="mt-4 space-y-3">
+                  {platform.stats.map((stat: any) => (
+                    <div key={stat.label} className="flex justify-between items-center">
+                      <span className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                        {stat.label}:
+                      </span>
+                      <span className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+                        {stat.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-6 text-center">
+                  <span className="inline-flex items-center text-sm font-medium text-cyber-glow hover:text-cyber-accent transition-colors">
+                    View Profile 
+                    <ExternalLink className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
+              </>
+            )}
+          </CardContent>
+        </Card>
+      </a>
+    </div>
+  );
 
   return (
     <section id="coding-profiles" className="py-16 px-4 md:px-8 relative">
@@ -71,56 +227,7 @@ const CodingProfiles = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {platforms.map((platform, index) => (
-            <div key={platform.name} className={`reveal-fade-up delay-${index * 100}`}>
-              <a 
-                href={platform.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block h-full transition-transform duration-300 hover:scale-[1.02]"
-              >
-                <Card className={`cyber-card h-full bg-gradient-to-br ${platform.bgClass} ${platform.borderClass} hover:shadow-lg relative overflow-hidden group`}>
-                  <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-gradient-to-br from-cyber-glow/5 to-transparent blur-2xl group-hover:opacity-70 transition-opacity"></div>
-                  <CardHeader className="flex flex-row items-center justify-between pb-2">
-                    <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-full bg-cyber-light/30 backdrop-blur-sm ${platform.iconClass}`}>
-                        {platform.icon}
-                      </div>
-                      <CardTitle className={`text-xl ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-                        {platform.name}
-                      </CardTitle>
-                    </div>
-                    <div className="bg-cyber-glow/10 px-3 py-1 rounded-full text-sm text-cyber-glow">
-                      @{platform.username.length > 15 ? platform.username.substring(0, 12) + '...' : platform.username}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mt-4 space-y-3">
-                      {platform.stats.map((stat) => (
-                        <div key={stat.label} className="flex justify-between items-center">
-                          <span className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-                            {stat.label}:
-                          </span>
-                          <span className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-                            {stat.value}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="mt-6 text-center">
-                      <span className="inline-flex items-center text-sm font-medium text-cyber-glow hover:text-cyber-accent transition-colors">
-                        View Profile 
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-            </div>
-          ))}
+          {platforms.map((platform, index) => renderPlatformCard(platform, index))}
         </div>
       </div>
     </section>
