@@ -6,12 +6,12 @@ import { Trophy, Code, Award, ExternalLink } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useTheme } from '@/context/ThemeContext';
 import { 
-  fetchLeetCodeProfile, 
-  fetchCodeForcesProfile, 
-  fetchCodeChefProfile,
   LeetCodeProfile,
   CodeForcesProfile,
-  CodeChefProfile
+  CodeChefProfile,
+  fetchLeetCodeProfile,
+  fetchCodeForcesProfile,
+  fetchCodeChefProfile
 } from '@/services/codingProfiles';
 
 type ProfileStatus = 'loading' | 'success' | 'error';
